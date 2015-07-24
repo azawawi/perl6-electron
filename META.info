@@ -6,5 +6,5 @@
 	"provides"    : {
 		"Farabi6"         : "lib/Atom/Electron.pm6",
 	},
-	"source-url"  : "git://github.com/azawawi/perl6-electron.git"
+	"source-url"  : "git://github.com/azawawi/perl6-atom-electron.git"
 }
