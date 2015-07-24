@@ -1,7 +1,7 @@
 {
 	"name"        : "Atom::Electron",
 	"version"     : "*",
-	"description" : "Write cross-platform Perl 6 desktop applications using JavaScript, HTML and CSS on top of the Electron platform",
+	"description" : "Cross-platform Perl 6 desktop web-based applications using the Electron platform",
 	"depends"     : [ "LWP::Simple" ],
 	"provides"    : {
 		"Farabi6"         : "lib/Atom/Electron.pm6",
