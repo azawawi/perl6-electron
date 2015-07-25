@@ -2,41 +2,15 @@
 
 use v6;
 
-#TODO make sure the path is usable when installed with panda
-my $pc = Proc::Async.new( "electron", "lib/Atom/Electron/main_app" );
-$pc.start;
+use lib 'lib';
 
-use JSON::RPC::Server;
+use Atom::Electron::BrowserWindow;
 
-my $json_bridge_server;
+my $win = Atom::Electron::BrowserWindow.new;
+$win.on('ready', sub {
+  "Window open!".say;
+});
 
-# define application class
-# that will handle remote procedure calls
-class My::JSON::RPC::Bridge {
-
-   method init {
-     say "Got an init request from main.js";
-     return %(
-       width     => 1024,
-       height    => 400,
-       dev_tools => False,
-     );
-   }
-
-   method stop {
-     say "Stopping main Perl 6 process";
-     $pc.kill;
-     exit 1;
-     return;
-   }
-
-   method sum (  :$a!, :$b! ) {
-     say "Got a call from Javascript land";
-     return $a + $b;
-  }
-}
-
-# start server with your application as handler
-say "Starting the JSON::RPC bridge";
-$json_bridge_server = JSON::RPC::Server.new( application => My::JSON::RPC::Bridge );
-$json_bridge_server.run;
+$win.on('closed', sub {
+  "Window closed!".say;
+});

@@ -1,6 +1,16 @@
 
 role Atom::Electron::JSONBridged {
-    method call($method_name, $args) {
-      # TODO call JSON::RPC::client send
+
+  use JSON::RPC::Client;
+
+  has $!json-client;
+
+  method call_js($method_name, $args) {
+    if !$!json-client {
+         # create new client with url to server
+         $!json-client = JSON::RPC::Client.new( url => 'http://localhost:8080' );
     }
+
+    $!json-client.$method_name($args);
+  }
 }
