@@ -6,4 +6,4 @@ perl6:
 
 install:
     - rakudobrew build-panda
-    - panda install LWP::Simple
+    - panda install JSON::RPC
