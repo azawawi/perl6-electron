@@ -34,9 +34,8 @@ class Atom::Electron::BrowserWindow {
        dev_tools_enabled => $!dev_tools_enabled
      );
      if $result.defined {
-       $!handle_id = 0 + $result:handle_id;
-       say "handle before $($result:handle_id)";
-       say "handle after $!handle_id";
+       say $result.perl;
+       $!handle_id = $result;
      } 
   }
   
