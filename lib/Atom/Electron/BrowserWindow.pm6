@@ -17,35 +17,36 @@ sub init_js is export {
 
 class Atom::Electron::BrowserWindow {
 
-  has Int $.handle_id is rw;
+  has Int $!handle_id;
   has Int $.width = 800;
   has Int $.height = 600;
   has Bool $.dev_tools_enabled = False;
   has Bool $.show;
 
-  method new {
-    my $o = self.bless;
-    
-    say $o.perl;
-    my $result = $json-client.BrowserWindow-new(
-      width => $o.width, 
-      height => $o.height, 
-      dev_tools_enabled => $o.dev_tools_enabled
-    );
-    if $result.defined {
-      say "handle id is $($result:handle_id)";
-      $o.handle_id = +$result:handle_id;
-    }
-    return $o;
+  submethod BUILD(
+     :$!width = 800,
+     :$!height = 600,
+     :$!dev_tools_enabled = False,
+   ) {
+     my $result = $json-client.BrowserWindow-new(
+       width => $!width, 
+       height => $!height, 
+       dev_tools_enabled => $!dev_tools_enabled
+     );
+     if $result.defined {
+       $!handle_id = 0 + $result:handle_id;
+       say "handle before $($result:handle_id)";
+       say "handle after $!handle_id";
+     } 
   }
+  
+  method load_url(Str $url) {
+    $json-client.BrowserWindow-load_url(handle_id => $!handle_id, url => $url);
+	}
 
 	method on($event_name, $listener) {
 		say "BrowserWindow.on...";
 		#add-listener($event-name, $listener);
-	}
-
-	method load_url(Str $url) {
-    $json-client.BrowserWindow-load_url(handle_id => $!handle_id, url => $url);
 	}
 
 	method show {
