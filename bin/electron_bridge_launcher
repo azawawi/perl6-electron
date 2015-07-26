@@ -16,7 +16,7 @@ $app.bridge;
 
 say "bridged";
 
-my $win1 = Atom::Electron::BrowserWindow.new(:width(1024), :height(768));
+my $win1 = Atom::Electron::BrowserWindow.new(:width(1024), :height(768), :dev_tools_enabled);
 my $win2 = Atom::Electron::BrowserWindow.new(:width(800), :height(600));
 
 #say "window 1 handle id is " ~ $win1.handle_id;
