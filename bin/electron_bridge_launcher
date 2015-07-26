@@ -19,9 +19,6 @@ say "bridged";
 my $win1 = Atom::Electron::BrowserWindow.new(:width(1024), :height(768), :dev_tools_enabled);
 my $win2 = Atom::Electron::BrowserWindow.new(:width(800), :height(600));
 
-#say "window 1 handle id is " ~ $win1.handle_id;
-#say "window 2 handle id is " ~ $win2.handle_id;
-
 $win1.load_url("http://www.google.com");
 $win2.load_url("http://www.github.com");
 
@@ -30,9 +27,9 @@ $win1.on('ready', sub {
   "Window open!".say;
 });
 
-#$win.on('closed', sub {
-#  "Window closed!".say;
-#});
+$win1.on('closed', sub {
+  "Window closed!".say;
+});
 
 prompt("Press any key to exit");
 $app.unbridge;
