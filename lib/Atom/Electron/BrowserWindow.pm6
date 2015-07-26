@@ -18,9 +18,9 @@ sub init_js is export {
 class Atom::Electron::BrowserWindow {
 
   has Int $!handle_id;
-  has Int $.width = 800;
-  has Int $.height = 600;
-  has Bool $.dev_tools_enabled = False;
+  has Int $.width;
+  has Int $.height;
+  has Bool $.dev_tools_enabled;
   has Bool $.show;
 
   submethod BUILD(
