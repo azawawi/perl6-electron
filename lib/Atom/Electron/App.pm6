@@ -15,4 +15,8 @@ class Atom::Electron::App {
       $!pc.kill;
     }
   }
+  
+  method event_loop {
+    say "Event loop started";
+  }
 }

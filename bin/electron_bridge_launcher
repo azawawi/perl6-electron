@@ -13,18 +13,16 @@ my $app = Atom::Electron::App.new;
 $app.bridge;
 
 my $win1 = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));
-my $win2 = Atom::Electron::BrowserWindow.new(:width(800), :height(600), :dev_tools_enabled);
+#my $win2 = Atom::Electron::BrowserWindow.new(:width(800), :height(600), :dev_tools_enabled);
 
-$win1.load_url("http://www.google.com");
-$win2.load_url("http://www.github.com");
-
-$win1.on('ready', sub {
-  "Window open!".say;
-});
+#$win1.load_url("http://www.google.com");
+#$win2.load_url("http://www.github.com");
 
 $win1.on('closed', sub {
   "Window closed!".say;
 });
+
+$app.event_loop;
 
 prompt("Press any key to exit");
 $app.unbridge;
