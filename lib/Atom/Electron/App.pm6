@@ -35,9 +35,13 @@ class Atom::Electron::App {
 
       if ! $json-client {
          # create new client with url to server
-         my $url = 'http://localhost:8080';
          sub transport ( Str :$json, Bool :$get_response ) {
-           my $t = LWP::Simple.post( ~$url, { 'Content-Type' => 'application/json' }, $json );
+           my $t = LWP::Simple.post(
+             'http://127.0.0.1:3333',
+             {
+               'Content-Type' => 'application/json'
+             },
+             $json);
            return $t.decode('utf-8');
          }
          $json-client = JSON::RPC::Client.new( transport => &transport );
