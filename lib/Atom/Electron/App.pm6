@@ -39,7 +39,7 @@ class Atom::Electron::App {
            my $t = LWP::Simple.post( ~$url, { 'Content-Type' => 'application/json' }, $json );
            return $t.decode('utf-8');
          }
-          $json-client = JSON::RPC::Client.new( transport => &transport );
+         $json-client = JSON::RPC::Client.new( transport => &transport );
       }
     }
   }
@@ -55,7 +55,8 @@ class Atom::Electron::App {
     say "Event loop started";
     loop {
       my $result = $.json-client.get_pending_events();
-      sleep 0.5;
+      say $result;
+      sleep 1;
     }
   }
 }

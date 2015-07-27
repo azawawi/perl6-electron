@@ -56,9 +56,7 @@ class Atom::Electron::BrowserWindow {
 	}
 
 	method on($event_name, $listener) {
-    say "Calling $event_name";
     Atom::Electron::App.json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
-    say "Done calling $event_name";
     return;
 	}
 
