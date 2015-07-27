@@ -32,11 +32,7 @@ class Atom::Electron::BrowserWindow {
      :$!kiosk       = False,
    ) 
    {
-     my $zz = Atom::Electron::App.instance;
-     say "1";
-     say $zz;
-     say "2";
-     my $result = Atom::Electron::App.instance.json-client.BrowserWindow-new(
+     my $result = Atom::Electron::App.json-client.BrowserWindow-new(
        x                 => $!x,
        y                 => $!y,
        width             => $!width, 
@@ -55,19 +51,19 @@ class Atom::Electron::BrowserWindow {
   }
   
   method load_url(Str $url) {
-    Atom::Electron::App.instance.json-client.BrowserWindow-load_url(handle => $!handle, url => $url);
+    Atom::Electron::App.json-client.BrowserWindow-load_url(handle => $!handle, url => $url);
     return;
 	}
 
 	method on($event_name, $listener) {
     say "Calling $event_name";
-    Atom::Electron::App.instance.json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
+    Atom::Electron::App.json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
     say "Done calling $event_name";
     return;
 	}
 
 	method show {
-    Atom::Electron::App.instance.json-client.BrowserWindow-show(handle => $!handle);
+    Atom::Electron::App.json-client.BrowserWindow-show(handle => $!handle);
     return;
 	}
 
