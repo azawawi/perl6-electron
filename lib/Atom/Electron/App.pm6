@@ -62,7 +62,7 @@ class Atom::Electron::App {
           $listener<listener>();
         }
       }
-      sleep 1;
+      sleep 0.5;
     }
   }
 

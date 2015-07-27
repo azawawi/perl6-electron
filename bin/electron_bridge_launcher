@@ -28,6 +28,10 @@ $win1.on('maximize', sub {
   "Window maximized!".say;
 });
 
+$win1.on('devtools-closed', sub {
+  "Dev tools closed!".say;
+});
+
 $app.event_loop;
 
 prompt("Press any key to exit");
