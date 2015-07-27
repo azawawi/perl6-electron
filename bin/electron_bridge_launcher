@@ -9,11 +9,8 @@ use Atom::Electron::BrowserWindow;
 
 init_js();
 
-say "Trying to bridge";
 my $app = Atom::Electron::App.new;
 $app.bridge;
-
-say "bridged";
 
 my $win1 = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));
 my $win2 = Atom::Electron::BrowserWindow.new(:width(800), :height(600), :dev_tools_enabled);
