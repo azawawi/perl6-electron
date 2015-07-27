@@ -15,41 +15,68 @@ sub init_js is export {
   }
 }
 
+#
+# Wrap browser-window API
+# Please see:
+# https://github.com/atom/electron/blob/master/docs/api/browser-window.md
+# https://github.com/atom/electron/blob/master/docs/api/frameless-window.md
+#
 class Atom::Electron::BrowserWindow {
 
-  has Int $!handle_id;
+  has Int $!handle;
+  has Int $.x;
+  has Int $.y;
   has Int $.width;
   has Int $.height;
   has Bool $.dev_tools_enabled;
+  has Bool $.frame;
+  has Bool $.transparent;
   has Bool $.show;
+  has Bool $.kiosk;
 
   submethod BUILD(
+     :$!x = 0,
+     :$!y = 0,
      :$!width = 800,
      :$!height = 600,
      :$!dev_tools_enabled = False,
-   ) {
+     :$!frame = True,
+     :$!transparent = False,
+     :$!show        = True,
+     :$!kiosk       = False,
+   ) 
+   {
      my $result = $json-client.BrowserWindow-new(
-       width => $!width, 
-       height => $!height, 
-       dev_tools_enabled => $!dev_tools_enabled
+       x                 => $!x,
+       y                 => $!y,
+       width             => $!width, 
+       height            => $!height, 
+       dev_tools_enabled => $!dev_tools_enabled,
+       frame             => $!frame,
+       transparent       => $!transparent,
+       show              => $!show,
+       kiosk             => :$!kiosk,
      );
      if $result.defined {
-       say $result.perl;
-       $!handle_id = $result;
-     } 
+       $!handle = $result;
+     } else {
+       # TODO invalid response. throw exception?
+     }
   }
   
   method load_url(Str $url) {
-    $json-client.BrowserWindow-load_url(handle_id => $!handle_id, url => $url);
+    $json-client.BrowserWindow-load_url(handle => $!handle, url => $url);
+    return;
 	}
 
 	method on($event_name, $listener) {
-		say "BrowserWindow.on...";
-		#add-listener($event-name, $listener);
+    $json-client.BrowserWindow-on(event_name => $event_name, listener => $listener);
+    return;
 	}
 
 	method show {
-		#Atom::Electron::JSONBridged.call_js('BrowserWindow-show');
+    $json-client.BrowserWindow-show;
+    return;
 	}
 
 }

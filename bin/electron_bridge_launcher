@@ -7,7 +7,6 @@ use lib 'lib';
 use Atom::Electron::App;
 use Atom::Electron::BrowserWindow;
 
-
 init_js();
 
 say "Trying to bridge";
@@ -16,12 +15,11 @@ $app.bridge;
 
 say "bridged";
 
-my $win1 = Atom::Electron::BrowserWindow.new(:width(1024), :height(768), :dev_tools_enabled);
-my $win2 = Atom::Electron::BrowserWindow.new(:width(800), :height(600));
+my $win1 = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));
+my $win2 = Atom::Electron::BrowserWindow.new(:width(800), :height(600), :dev_tools_enabled);
 
 $win1.load_url("http://www.google.com");
 $win2.load_url("http://www.github.com");
-
 
 $win1.on('ready', sub {
   "Window open!".say;
