@@ -1,19 +1,5 @@
 # JSON Client!
-use JSON::RPC::Client;
-
-my $json-client;
-sub init_js is export {
-  if ! $json-client {
-     # create new client with url to server
-     say "Creating js client";
-     my $url = 'http://localhost:8080';
-     sub transport ( Str :$json, Bool :$get_response ) {
-       my $t = LWP::Simple.post( ~$url, { 'Content-Type' => 'application/json' }, $json );
-       return $t.decode('utf-8');
-     }
-      $json-client = JSON::RPC::Client.new( transport => &transport );
-  }
-}
+use Atom::Electron::App;
 
 #
 # Wrap browser-window API
@@ -46,7 +32,11 @@ class Atom::Electron::BrowserWindow {
      :$!kiosk       = False,
    ) 
    {
-     my $result = $json-client.BrowserWindow-new(
+     my $zz = Atom::Electron::App.instance;
+     say "1";
+     say $zz;
+     say "2";
+     my $result = Atom::Electron::App.instance.json-client.BrowserWindow-new(
        x                 => $!x,
        y                 => $!y,
        width             => $!width, 
@@ -65,19 +55,19 @@ class Atom::Electron::BrowserWindow {
   }
   
   method load_url(Str $url) {
-    $json-client.BrowserWindow-load_url(handle => $!handle, url => $url);
+    Atom::Electron::App.instance.json-client.BrowserWindow-load_url(handle => $!handle, url => $url);
     return;
 	}
 
 	method on($event_name, $listener) {
     say "Calling $event_name";
-    $json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
+    Atom::Electron::App.instance.json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
     say "Done calling $event_name";
     return;
 	}
 
 	method show {
-    $json-client.BrowserWindow-show(handle => $!handle);
+    Atom::Electron::App.instance.json-client.BrowserWindow-show(handle => $!handle);
     return;
 	}
 
