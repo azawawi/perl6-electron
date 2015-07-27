@@ -57,6 +57,7 @@ class Atom::Electron::BrowserWindow {
 
 	method on($event_name, $listener) {
     Atom::Electron::App.json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
+    Atom::Electron::App.instance.on(handle => $!handle, event_name => $event_name, listener => $listener);
     return;
 	}
 

@@ -2,7 +2,8 @@ use JSON::RPC::Client;
 
 class Atom::Electron::App {
   has $!pc;
-  
+  has @!listeners;
+
   # singleton instance
   my Atom::Electron::App $instance;
   my JSON::RPC::Client $json-client;
@@ -46,17 +47,26 @@ class Atom::Electron::App {
   
   method destroy {
     if $!pc.defined {
-      say "Killing electron!";
       $!pc.kill;
     }
   }
   
   method event_loop {
-    say "Event loop started";
     loop {
-      my $result = $.json-client.get_pending_events();
-      say $result;
+      my $o = $.json-client.get_pending_events;
+      my @events = @($o<events>);
+      for @events -> $event {
+        for @!listeners -> $listener {
+          next if $listener<handle> != $event<handle>;
+          next if $listener<event_name> ne $event<event_name>;
+          $listener<listener>();
+        }
+      }
       sleep 1;
     }
+  }
+
+  method on(:$event_name, :$handle, :$listener) {
+    @!listeners.push({handle => $handle, event_name => $event_name, listener => $listener});
   }
 }
