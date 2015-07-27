@@ -4,8 +4,7 @@ use v6;
 
 use lib 'lib';
 
-use Atom::Electron::App;
-use Atom::Electron::BrowserWindow;
+use Atom::Electron;
 
 my $app = Atom::Electron::App.instance;
 

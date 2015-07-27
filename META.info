@@ -4,7 +4,9 @@
 	"description" : "Cross-platform Perl 6 desktop web-based applications using the Electron platform",
 	"depends"     : [ "JSON::RPC" ],
 	"provides"    : {
-		"Atom::Electron"         : "lib/Atom/Electron.pm6"
+		"Atom::Electron"                 : "lib/Atom/Electron.pm6",
+		"Atom::Electron::App"            : "lib/Atom/Electron/App.pm6",
+		"Atom::Electron::BrowserWindow"  : "lib/Atom/Electron/BrowserWindow.pm6"
 	},
 	"source-url"  : "git://github.com/azawawi/perl6-atom-electron.git"
 }
