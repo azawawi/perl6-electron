@@ -1,5 +1,4 @@
-Atom::Electron
-================
+# Atom::Electron
 [![Build Status](https://travis-ci.org/azawawi/perl6-atom-electron.svg?branch=master)](https://travis-ci.org/azawawi/perl6-atom-electron)
 
 The goal is to write cross-platform Perl 6 desktop applications using
