@@ -8,7 +8,7 @@ use Atom::Electron;
 
 my $app = Atom::Electron::App.instance;
 
-my $win1 = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));
+my $win1 = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768), :show(False));
 #my $win2 = Atom::Electron::BrowserWindow.new(:width(800), :height(600), :dev_tools_enabled);
 
 $win1.load_url("http://www.google.com");
@@ -25,6 +25,8 @@ $win1.on('maximize', sub {
 $win1.on('devtools-closed', sub {
   "Dev tools closed!".say;
 });
+
+$win1.show;
 
 $app.event_loop;
 
