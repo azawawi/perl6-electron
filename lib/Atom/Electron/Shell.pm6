@@ -7,8 +7,8 @@ use Atom::Electron::App;
   The shell module provides functions related to desktop integration. 
   An example of opening a URL in default browser:
 
-    var shell = require('shell');
-    shell.openExternal('https://github.com');
+    use Atom::Electron::Shell;
+    Atom::Electron::Shell.open_external("http://doc.perl6.org");
 
 =end pod
 class Atom::Electron::Shell {
