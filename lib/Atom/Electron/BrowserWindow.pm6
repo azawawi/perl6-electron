@@ -1,11 +1,13 @@
 use Atom::Electron::App;
 
-#
-# Wrap browser-window API
-# Please see:
-# https://github.com/atom/electron/blob/master/docs/api/browser-window.md
-# https://github.com/atom/electron/blob/master/docs/api/frameless-window.md
-#
+=begin pod
+  This is the browser window API wrapper which is described in
+  https://github.com/atom/electron/blob/master/docs/api/browser-window.md
+  and
+  https://github.com/atom/electron/blob/master/docs/api/frameless-window.md
+
+  TODO implement remaining parts of Atom::Electron::BrowserWindow
+=end pod
 class Atom::Electron::BrowserWindow {
 
   has Int $!handle;
@@ -19,6 +21,9 @@ class Atom::Electron::BrowserWindow {
   has Bool $.show;
   has Bool $.kiosk;
 
+=begin pod
+TODO document
+=end pod
   submethod BUILD(
      :$!x = 0,
      :$!y = 0,
@@ -49,17 +54,26 @@ class Atom::Electron::BrowserWindow {
      }
   }
   
+=begin pod
+TODO document
+=end pod
   method load_url(Str $url) {
     Atom::Electron::App.json-client.BrowserWindow-load_url(handle => $!handle, url => $url);
     return;
 	}
 
+=begin pod
+TODO document
+=end pod
 	method on($event_name, $listener) {
     Atom::Electron::App.json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
     Atom::Electron::App.instance.on(handle => $!handle, event_name => $event_name, listener => $listener);
     return;
 	}
 
+=begin pod
+TODO document
+=end pod
 	method show {
     Atom::Electron::App.json-client.BrowserWindow-show(handle => $!handle);
     return;

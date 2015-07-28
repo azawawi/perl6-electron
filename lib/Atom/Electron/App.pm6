@@ -1,5 +1,11 @@
 use JSON::RPC::Client;
 
+=begin pod
+  This is the screen API wrapper which is described in
+  https://github.com/atom/electron/blob/master/docs/api/app.md
+
+  TODO implement remaining parts of Atom::Electron::App
+=end
 class Atom::Electron::App {
   has $!pc;
   has @!listeners;
@@ -14,6 +20,9 @@ class Atom::Electron::App {
     !!!
   }
   
+=begin pod
+  TODO document
+=end pod
   # App.instance
   method instance { 
     if ! $instance.defined {
@@ -23,10 +32,16 @@ class Atom::Electron::App {
     $instance;
   }
   
+=begin pod
+  TODO document
+=end pod
   method json-client {
     return $json-client;
   }
 
+=begin pod
+TODO document
+=end pod
   submethod initialize {
     if !$!pc {
       $!pc = Proc::Async.new( "electron", "lib/Atom/Electron/main_app" );
@@ -49,12 +64,18 @@ class Atom::Electron::App {
     }
   }
   
+=begin pod
+  TODO document
+=end pod
   method destroy {
     if $!pc.defined {
       $!pc.kill;
     }
   }
   
+=begin pod
+  TODO document
+=end pod
   method event_loop {
     loop {
       my $o = $.json-client.get_pending_events;

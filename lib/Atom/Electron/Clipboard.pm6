@@ -19,6 +19,7 @@ use Atom::Electron::App;
     Atom::Electron::Clipboard.write_text('Example String', 'selection');
     say Atom::Electron::Clipboard.read_text('selection');
 
+    TODO implement remaining parts of Atom::Electron::Clipboard
 =end pod
 class Atom::Electron::Clipboard {
 
