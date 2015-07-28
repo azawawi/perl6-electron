@@ -6,7 +6,11 @@ use lib 'lib';
 
 use Atom::Electron;
 
+
 my $app = Atom::Electron::App.instance;
+LEAVE: {
+  $app.destroy;
+}
 
 my $win = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768), :show(False));
 
@@ -29,4 +33,3 @@ $win.show;
 $app.event_loop;
 
 prompt("Press any key to exit");
-$app.destroy;

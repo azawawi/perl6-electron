@@ -7,6 +7,9 @@ use lib 'lib';
 use Atom::Electron;
 
 my $app = Atom::Electron::App.instance;
+LEAVE: {
+  $app.destroy;
+}
 
 my $text = 'Hello world';
 say "Writing to clipboard the following: $text";
@@ -20,4 +23,3 @@ Atom::Electron::Clipboard.clear;
 say "Read from clipboard the following: " ~ Atom::Electron::Clipboard.read_text;
 
 prompt("Press any key to exit");
-$app.destroy;

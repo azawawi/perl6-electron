@@ -7,6 +7,9 @@ use lib 'lib';
 use Atom::Electron;
 
 my $app = Atom::Electron::App.instance;
+LEAVE: {
+  $app.destroy;
+}
 
 my $file = 'META.info';
 Atom::Electron::Shell.open_item($file);
@@ -22,4 +25,3 @@ Atom::Electron::Shell.move_item_to_trash($file_to_delete);
 Atom::Electron::Shell.beep;
 
 prompt("Press any key to exit");
-$app.destroy;

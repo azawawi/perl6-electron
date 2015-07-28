@@ -7,6 +7,9 @@ use lib 'lib';
 use Atom::Electron;
 
 my $app = Atom::Electron::App.instance;
+LEAVE: {
+  $app.destroy;
+}
 
 # Atom::Electron::Dialog.show_open_dialog;
 
@@ -17,4 +20,3 @@ my $app = Atom::Electron::App.instance;
 Atom::Electron::Dialog.show_error_box("Text", "Content");
 
 prompt("Press any key to exit");
-$app.destroy;
