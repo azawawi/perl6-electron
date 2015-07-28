@@ -9,8 +9,10 @@
 		"Atom::Electron::BrowserWindow"  : "lib/Atom/Electron/BrowserWindow.pm6",
 		"Atom::Electron::Clipboard"      : "lib/Atom/Electron/Clipboard.pm6",
 		"Atom::Electron::Dialog"         : "lib/Atom/Electron/Dialog.pm6",
+		"Atom::Electron::PowerMonitor"   : "lib/Atom/Electron/PowerMonitor.pm6",
 		"Atom::Electron::Screen"         : "lib/Atom/Electron/Screen.pm6",
-		"Atom::Electron::Shell"          : "lib/Atom/Electron/Shell.pm6"
+		"Atom::Electron::Shell"          : "lib/Atom/Electron/Shell.pm6",
+		"Atom::Electron::Tray"           : "lib/Atom/Electron/Tray.pm6"
 	},
 	"source-url"  : "git://github.com/azawawi/perl6-atom-electron.git"
 }

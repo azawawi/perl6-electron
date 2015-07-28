@@ -5,6 +5,8 @@ class Atom::Electron {
   use Atom::Electron::BrowserWindow;
   use Atom::Electron::Clipboard;
   use Atom::Electron::Dialog;
+  use Atom::Electron::PowerMonitor;
   use Atom::Electron::Screen;
   use Atom::Electron::Shell;
+  use Atom::Electron::Tray;
 }
