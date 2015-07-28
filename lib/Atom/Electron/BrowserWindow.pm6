@@ -1,4 +1,3 @@
-# JSON Client!
 use Atom::Electron::App;
 
 #
