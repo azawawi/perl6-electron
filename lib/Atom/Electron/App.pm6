@@ -5,7 +5,7 @@ use JSON::RPC::Client;
   https://github.com/atom/electron/blob/master/docs/api/app.md
 
   TODO implement remaining parts of Atom::Electron::App
-=end
+=end pod
 class Atom::Electron::App {
   has $!pc;
   has @!listeners;

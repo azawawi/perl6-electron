@@ -6,8 +6,6 @@ use lib 'lib';
 
 use Atom::Electron;
 
-say "Testing shell!";
-
 my $app = Atom::Electron::App.instance;
 
 my $file = 'META.info';
