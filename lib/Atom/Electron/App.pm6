@@ -1,5 +1,3 @@
-use JSON::RPC::Client;
-
 =begin pod
   This is the screen API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/app.md
@@ -7,6 +5,10 @@ use JSON::RPC::Client;
   TODO implement remaining parts of Atom::Electron::App
 =end pod
 class Atom::Electron::App {
+
+  use File::Which;
+  use JSON::RPC::Client;
+
   has $!pc;
   has @!listeners;
 
@@ -43,12 +45,14 @@ class Atom::Electron::App {
 TODO document
 =end pod
   submethod initialize {
-    if !$!pc {
+    unless $!pc {
+      fail("Cannot find electron in PATH") unless which( :exec('electron') );
+
       $!pc = Proc::Async.new( "electron", "lib/Atom/Electron/main_app" );
       $!pc.start;
       sleep 2;
 
-      if ! $json-client {
+      unless $json-client {
          # create new client with url to server
          sub transport ( Str :$json, Bool :$get_response ) {
            my $t = LWP::Simple.post(

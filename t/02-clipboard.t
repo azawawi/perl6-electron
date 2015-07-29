@@ -1,12 +1,22 @@
 use v6;
 
 use Test;
+
 use lib 'lib';
 
 # Methods to test
 my @methods = 'write_text', 'read_text', 'clear';
 
 plan @methods.elems + 3;
+
+{
+  # Skip tests if the electron executable is not found
+  use File::Which;
+  unless which( :exec('electron') ) {
+    skip-rest("electron is not installed. skipping tests...");
+    exit;
+  }
+}
 
 use Atom::Electron::Clipboard;
 ok 1, "'use Atom::Electron::Clipboard' worked!";
@@ -16,7 +26,7 @@ for @methods -> $method {
 }
 
 my $app = Atom::Electron::App.instance;
-END {
+LEAVE {
   diag 'Destroy electron app';
   $app.destroy;
 }
