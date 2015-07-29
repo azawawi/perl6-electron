@@ -1,8 +1,7 @@
 use v6;
 
-BEGIN { @*INC.push('lib') };
-
 use Test;
+use lib 'lib';
 
 plan 2;
 

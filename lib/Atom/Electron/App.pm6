@@ -65,11 +65,14 @@ TODO document
   }
   
 =begin pod
-  TODO document
+  Destroy the singleton App by quitting it, sleeping a bit and
+  then force killing the electron process
 =end pod
   method destroy {
+    $json-client.App-quit;
+    sleep 0.5;
     if $!pc.defined {
-      $!pc.kill;
+      $!pc.kill(SIGTERM);
     }
   }
   

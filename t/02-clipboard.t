@@ -1,17 +1,16 @@
 use v6;
 
-BEGIN { @*INC.push('lib') };
-
 use Test;
+use lib 'lib';
 
-plan 0;
-exit 1;
+plan 3;
 
 use Atom::Electron::Clipboard;
 ok 1, "'use Atom::Electron::Clipboard' worked!";
 
 my $app = Atom::Electron::App.instance;
-END: {
+END {
+  diag 'Destroy electron app';
   $app.destroy;
 }
 
