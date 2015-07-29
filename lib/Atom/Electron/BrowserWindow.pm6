@@ -1,5 +1,3 @@
-use Atom::Electron::App;
-
 =begin pod
   This is the browser window API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/browser-window.md
@@ -9,6 +7,8 @@ use Atom::Electron::App;
   TODO implement remaining parts of Atom::Electron::BrowserWindow
 =end pod
 class Atom::Electron::BrowserWindow {
+
+  use Atom::Electron::App;
 
   has Int $!handle;
   has Int $.x;

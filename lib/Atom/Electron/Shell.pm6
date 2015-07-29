@@ -1,5 +1,3 @@
-use Atom::Electron::App;
-
 =begin pod
   This is the shell API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/shell.md
@@ -12,6 +10,8 @@ use Atom::Electron::App;
 
 =end pod
 class Atom::Electron::Shell {
+
+    use Atom::Electron::App;
 
 =begin pod
   Show the given file in a file manager. If possible, select the file.

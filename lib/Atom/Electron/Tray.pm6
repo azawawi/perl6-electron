@@ -1,5 +1,3 @@
-use Atom::Electron::App;
-
 =begin pod
   This is the tray API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/tray.md
@@ -7,4 +5,7 @@ use Atom::Electron::App;
   TODO implement Atom::Electron::Tray
 =end pod
 class Atom::Electron::Tray {
+
+  use Atom::Electron::App;
+
 }

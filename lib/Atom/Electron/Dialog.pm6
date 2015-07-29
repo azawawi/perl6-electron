@@ -1,5 +1,3 @@
-use Atom::Electron::App;
-
 =begin pod
   This is the dialog API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/dialog.md
@@ -21,6 +19,8 @@ use Atom::Electron::App;
     parameter.
 =end pod
 class Atom::Electron::Dialog {
+
+  use Atom::Electron::App;
 
 =begin pod
   

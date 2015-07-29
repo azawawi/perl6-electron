@@ -1,5 +1,3 @@
-use Atom::Electron::App;
-
 =begin pod
   This is the power monitor API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/power-monitor.md.md
@@ -7,4 +5,7 @@ use Atom::Electron::App;
   TODO implement Atom::Electron::PowerMonitor
 =end pod
 class Atom::Electron::PowerMonitor {
+
+    use Atom::Electron::App;
+
 }

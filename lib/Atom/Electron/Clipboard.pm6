@@ -1,5 +1,3 @@
-use Atom::Electron::App;
-
 =begin pod
   This is the clipboard API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/clipboard.md
@@ -22,6 +20,8 @@ use Atom::Electron::App;
     TODO implement remaining parts of Atom::Electron::Clipboard
 =end pod
 class Atom::Electron::Clipboard {
+
+  use Atom::Electron::App;
 
 =begin pod
   Returns the content in clipboard as plain text.
