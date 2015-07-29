@@ -12,7 +12,7 @@ plan @methods.elems + 3;
 {
   # Skip tests if the electron executable is not found
   use File::Which;
-  unless which( :exec('electron') ) {
+  unless which('electron') {
     skip-rest("electron is not installed. skipping tests...");
     exit;
   }

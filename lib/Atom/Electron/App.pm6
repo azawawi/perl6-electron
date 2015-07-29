@@ -46,7 +46,7 @@ TODO document
 =end pod
   submethod initialize {
     unless $!pc {
-      fail("Cannot find electron in PATH") unless which( :exec('electron') );
+      fail("Cannot find electron in PATH") unless which('electron');
 
       $!pc = Proc::Async.new( "electron", "lib/Atom/Electron/main_app" );
       $!pc.start;
