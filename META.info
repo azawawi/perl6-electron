@@ -2,7 +2,7 @@
 	"name"        : "Atom::Electron",
 	"version"     : "*",
 	"description" : "Cross-platform Perl 6 desktop web-based applications using the Electron platform",
-	"depends"     : [ "JSON::RPC" ],
+	"depends"     : [ "File::Which", "JSON::RPC" ],
 	"provides"    : {
 		"Atom::Electron"                 : "lib/Atom/Electron.pm6",
 		"Atom::Electron::App"            : "lib/Atom/Electron/App.pm6",

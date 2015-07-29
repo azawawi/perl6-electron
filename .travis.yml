@@ -6,4 +6,4 @@ perl6:
 
 install:
     - rakudobrew build-panda
-    - panda install JSON::RPC
+    - panda install File::Which JSON::RPC
