@@ -23,12 +23,40 @@ class Atom::Electron::Dialog {
   use Atom::Electron::App;
 
 =begin pod
-  
+
+TODO implement callback via event loop
+
+Opens the open file dialog with the following options:
+
+browserWindow BrowserWindow
+options Object
+title String
+defaultPath String
+filters Array
+properties Array - Contains which features the dialog should use, can contain openFile, openDirectory, multiSelections and createDirectory
+callback Function
+On success, returns an array of file paths chosen by the user, otherwise returns undefined.
+
+The filters specifies an array of file types that can be displayed or selected, an example is:
+
+    {
+      filters: [
+        { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+        { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+        { name: 'Custom File Type', extensions: ['as'] }
+      ]
+    }
+If a callback is passed, the API call would be asynchronous and the result would be passed via callback(filenames)
+
+Note: On Windows and Linux, an open dialog can not be both a file selector and a directory selector, so if you set properties to ['openFile', 'openDirectory'] on these platforms, a directory selector will be shown.
 =end pod
-  method show_open_dialog() {
-    !!!
-    my $result = Atom::Electron::App.json-client.Dialog-show_open_dialog();
-    return $result<text>;
+  method show_open_dialog(:$browserWindow = Nil, :$options = {}) {
+    my $handle = $browserWindow.defined ?? $browserWindow.handle !! -1;
+    my $result = Atom::Electron::App.json-client.Dialog-show_open_dialog(
+      handle   => $handle,
+      options  => $options
+    );
+    return $result<selected>;
   }
 
 =begin pod

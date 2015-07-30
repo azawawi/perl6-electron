@@ -11,7 +11,7 @@ LEAVE {
   $app.destroy;
 }
 
-# Atom::Electron::Dialog.show_open_dialog;
+say Atom::Electron::Dialog.show_open_dialog.perl;
 
 # Atom::Electron::Dialog.show_save_dialog;
 
