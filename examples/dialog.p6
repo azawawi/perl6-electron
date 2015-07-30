@@ -7,7 +7,7 @@ use lib 'lib';
 use Atom::Electron;
 
 my $app = Atom::Electron::App.instance;
-LEAVE: {
+LEAVE {
   $app.destroy;
 }
 
