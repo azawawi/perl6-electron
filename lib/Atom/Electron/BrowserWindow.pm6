@@ -60,23 +60,23 @@ TODO document
   method load_url(Str $url) {
     Atom::Electron::App.json-client.BrowserWindow-load_url(handle => $!handle, url => $url);
     return;
-	}
+  }
 
 =begin pod
 TODO document
 =end pod
-	method on($event_name, $listener) {
+  method on($event_name, $listener) {
     Atom::Electron::App.json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
     Atom::Electron::App.instance.on(handle => $!handle, event_name => $event_name, listener => $listener);
     return;
-	}
+  }
 
 =begin pod
 TODO document
 =end pod
-	method show {
+  method show {
     Atom::Electron::App.json-client.BrowserWindow-show(handle => $!handle);
     return;
-	}
+  }
 
 }
