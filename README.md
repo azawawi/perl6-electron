@@ -7,9 +7,9 @@ JavaScript, HTML and CSS on top of the Electron platform. The Electron
 
 ## Electron Platform Installation
 
-Please follow the correct instructions for your platform.
+Please follow the instructions below based on your platform:
 
-### Linux installation
+### Linux
 
 - Install nodejs using apt
 ```
@@ -24,7 +24,7 @@ Please follow the correct instructions for your platform.
 After a successful installation, electron should be installed in 
 ``/usr/local/bin/electron``.
 
-## Windows installation
+## Windows
 
 If that fails, please download the correct electron platform from
 https://github.com/atom/electron/releases. and make sure that ```electron```
