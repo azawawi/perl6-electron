@@ -13,9 +13,9 @@ LEAVE {
 
 say Atom::Electron::Dialog.show_open_dialog.perl;
 
-# Atom::Electron::Dialog.show_save_dialog;
+say Atom::Electron::Dialog.show_save_dialog.perl;
 
-# Atom::Electron::Dialog.show_message_box;
+say Atom::Electron::Dialog.show_message_box.perl;
 
 Atom::Electron::Dialog.show_error_box("Text", "Content");
 
