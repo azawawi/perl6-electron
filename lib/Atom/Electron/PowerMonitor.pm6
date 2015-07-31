@@ -1,6 +1,6 @@
 =begin pod
   This is the power monitor API wrapper which is described in
-  https://github.com/atom/electron/blob/master/docs/api/power-monitor.md.md
+  https://github.com/atom/electron/blob/master/docs/api/power-monitor.md
 
   TODO implement Atom::Electron::PowerMonitor
 =end pod
