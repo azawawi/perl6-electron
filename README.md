@@ -16,7 +16,8 @@ Please follow the instructions below based on your platform:
     sudo apt-get install nodejs
 ```
 - Install pre-built electron for your platform using the following command
-  line
+  line:
+
 ```
     sudo npm install electron-prebuilt -g
 ```
