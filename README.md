@@ -34,10 +34,10 @@ can be called from the command line.
 - Install the installer from https://nodejs.org/
 - Install pre-built electron for your platform using the following command
   line:
-``
-    # Install pre-built electron for your platform
+
+```
     npm install electron-prebuilt -g
-``
+```
 
 
 After a success installation, electron should be installed in
