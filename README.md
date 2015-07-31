@@ -2,10 +2,10 @@
 [![Build Status](https://travis-ci.org/azawawi/perl6-atom-electron.svg?branch=master)](https://travis-ci.org/azawawi/perl6-atom-electron)
 
 The goal is to write cross-platform Perl 6 desktop applications using
-JavaScript, HTML and CSS on top of the Electron platform. The Electron
- framework is based on io.js and Chromium and is used in the Atom editor.
+JavaScript, HTML and CSS on top of the Electron platform. It is based on [io.js](http://iojs.org) and [Chromium](http://www.chromium.org) and is used in
+ the [Atom editor](https://github.com/atom/atom).
 
-## Electron Platform Installation
+## Electron Installation
 
 Please follow the instructions below based on your platform:
 
@@ -21,7 +21,7 @@ Please follow the instructions below based on your platform:
     sudo npm install electron-prebuilt -g
 ```
 
-After a successful installation, electron should be installed in 
+After a successful installation, electron should be installed in
 ``/usr/local/bin/electron``.
 
 ## Windows
