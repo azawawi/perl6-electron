@@ -5,7 +5,7 @@ use Test;
 use lib 'lib';
 
 # Methods to test
-my @methods = 'on', 'on_suspend', 'on_resume', 'on_ac', 'on_battery';
+my @methods = 'on', 'on-suspend', 'on-resume', 'on-ac', 'on-battery';
 
 plan @methods.elems + 1;
 

@@ -8,14 +8,43 @@ class Atom::Electron::Screen {
 
 =begin pod
   Register an event listener
-TODO implement Screen.on(...)
+TODO implement
 =end pod
   method on($event_name, $listener) {
     !!!
-    #Atom::Electron::App.json-client.Screen-on(handle => $!handle, event_name => $event_name);
-    #Atom::Electron::App.instance.on(handle => $!handle, event_name => $event_name, listener => $listener);
     return;
   }
+
+=begin pod
+  Registers an event that fired when a new display is added.
+
+    event Event
+    newDisplay Object
+=end pod
+  method on-display-added($listener) {
+    self.on-display-added($listener);
+  }
+
+=begin pod
+  Registers an event that is fired when an old display is removed.
+=end pod
+  method on-display-removed($listener) {
+    self.on('displayed-removed', $listener);
+  }
+
+=begin pod
+  Registers an event that is fired when a display has one or more metrics
+  changed
+
+  - display Object
+  - changedMetrics Array
+
+  changedMetrics is an array of strings that describe the changes.
+  Possible changes are bounds, workArea, scaleFactor and rotation.
+=end pod
+method on-display-metrics-changed($listener) {
+  self.on('display-metrics-changed', $listener);
+}
 
 =begin pod
   Returns the current absolute position of the mouse pointer.
