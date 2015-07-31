@@ -1,5 +1,12 @@
 use v6;
 
+=begin pod
+
+This will use all the Atom::Electron::* API namespace and is intended for
+shorter code or if you are actually using all API :).
+
+For faster scripts, it is advised to use the API that you only need.
+=end pod
 class Atom::Electron {
   use Atom::Electron::App;
   use Atom::Electron::BrowserWindow;
