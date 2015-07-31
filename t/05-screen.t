@@ -5,7 +5,7 @@ use Test;
 use lib 'lib';
 
 # Methods to test
-my @methods = 'on', 'get_cursor_screen_port', 'get_primary_display', 'get_all_displays',
+my @methods = 'on', 'get_cursor_screen_point', 'get_primary_display', 'get_all_displays',
   'get_display_nearest_point', 'get_display_matching';
 
 plan @methods.elems + 1;
