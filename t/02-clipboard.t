@@ -9,6 +9,13 @@ my @methods = 'write_text', 'read_text', 'clear';
 
 plan @methods.elems + 3;
 
+use Atom::Electron::Clipboard;
+ok 1, "'use Atom::Electron::Clipboard' worked!";
+
+for @methods -> $method {
+  ok Atom::Electron::Clipboard.can($method), "Clipboard.$method is found";
+}
+
 {
   # Skip tests if the electron executable is not found
   use File::Which;
@@ -16,13 +23,6 @@ plan @methods.elems + 3;
     skip-rest("electron is not installed. skipping tests...");
     exit;
   }
-}
-
-use Atom::Electron::Clipboard;
-ok 1, "'use Atom::Electron::Clipboard' worked!";
-
-for @methods -> $method {
-  ok Atom::Electron::Clipboard.can($method), "Clipboard.$method is found";
 }
 
 my $app = Atom::Electron::App.instance;
