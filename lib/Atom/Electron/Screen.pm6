@@ -21,21 +21,21 @@ TODO implement Screen.on(...)
   Returns the current absolute position of the mouse pointer.
 =end pod
   method get_cursor_screen_point {
-    return Atom::Electron::App.json-client.Screen-get_cursor_screen_point;
+    return Atom::Electron::App.json-client.Screen-get_cursor_screen_point<result>;
   }
 
 =begin pod
   Returns the primary display.
 =end pod
   method get_primary_display {
-    return Atom::Electron::App.json-client.Screen-get_primary_display;
+    return Atom::Electron::App.json-client.Screen-get_primary_display<result>;
   }
 
 =begin pod
   Returns an array of displays that are currently available.
 =end pod
   method get_all_displays {
-    return Atom::Electron::App.json-client.Screen-get_all_displays;
+    return Atom::Electron::App.json-client.Screen-get_all_displays<result>;
   }
 
 =begin pod
@@ -45,7 +45,7 @@ TODO implement Screen.on(...)
     Int y
 =end pod
   method get_display_nearest_point($point) {
-    return Atom::Electron::App.json-client.Screen-get_display_nearest_point(point => $point);
+    return Atom::Electron::App.json-client.Screen-get_display_nearest_point(point => $point)<result>;
   }
 
 =begin pod
@@ -57,6 +57,6 @@ TODO implement Screen.on(...)
       Int height
 =end pod
   method get_display_matching($rect) {
-    return Atom::Electron::App.json-client.Screen-get_display_matching(rect => $rect);
+    return Atom::Electron::App.json-client.Screen-get_display_matching(rect => $rect)<result>;
   }
 }
