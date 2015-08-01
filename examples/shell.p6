@@ -18,9 +18,9 @@ Atom::Electron::Shell.show_item_in_folder($file);
 
 Atom::Electron::Shell.open_external("http://doc.perl6.org");
 
-my $file_to_delete = "safe-to-delete.txt";
-$file_to_delete.IO.spurt("Hello world");
-Atom::Electron::Shell.move_item_to_trash($file_to_delete);
+my $file-to-delete = "delete-me.txt";
+$file-to-delete.IO.spurt("Hello world");
+Atom::Electron::Shell.move_item_to_trash($file-to-delete);
 
 Atom::Electron::Shell.beep;
 
