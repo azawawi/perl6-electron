@@ -16,15 +16,15 @@ my $win = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :hei
 
 $win.load_url("http://www.google.com");
 
-$win.on('minimize', sub {
+$win.on-minimize( sub {
   "Window minimized!".say;
 });
 
-$win.on('maximize', sub {
+$win.on-maximize( sub {
   "Window maximized!".say;
 });
 
-$win.on('devtools-closed', sub {
+$win.on-devtools-closed( sub {
   "Dev tools closed!".say;
 });
 

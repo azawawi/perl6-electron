@@ -29,11 +29,11 @@ my $window = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :
 
 $window.load_url("http://127.0.0.1:3000");
 
-$window.on('minimize', sub {
+$window.on-minimize( sub {
   "Window minimized!".say;
 });
 
-$window.on('maximize', sub {
+$window.on-maximize( sub {
   "Window maximized!".say;
 });
 
