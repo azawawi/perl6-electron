@@ -1,27 +1,35 @@
 #!/usr/bin/env perl6
 
-#say $*SPEC;
-my $text = "tools/tray.md".IO.slurp;
+sub pod(Str $text) {
+  "\n=begin pod\n$text=end pod\n"
+}
 
-#say $text ~~ / '###' /:g;
-
-for $text.lines -> $line {
+my constant $POD = "\n=begin pod\n=end pod\n";
+my Str $pod_buffer = '';
+my $buffer = '';
+for "tools/tray.md".IO.lines -> $line {
   if $line ~~ / ^ '###' (.+) $ / {
-    say $line;
-    my $signature = ~$/[0];
-    say $signature;
-    if $signature ~~ / ^ 'Event: ' (.+) $ / {
-      # Event
+    my $header = ~$/[0];
+    if $header ~~ / ^ " Event: '" (.+) "'" $ / {
+      # on-event method
       my $event_name = ~$/[0];
-      say $event_name;
-      say "method on-$event_name\(\$listener) { }";
+      if $buffer ne '' {
+        say pod($pod_buffer) ~ $buffer;
+      }
+      $buffer = "method on-$event_name\(\$listener) \{\n}";
     } else {
       # method
-      my Str $method = $/[0];
-      say $method;
-      say "method $method { }";
+      my Str $method = ~$header;
+      if $buffer ne '' {
+        say pod($pod_buffer) ~ $buffer;
+      }
+      $buffer = "method $method \{\n}";
     }
+
+    $pod_buffer = '';
+
+  } else {
+    $pod_buffer ~= $line ~ "\n";
   }
-  
 }
 
