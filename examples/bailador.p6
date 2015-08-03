@@ -20,7 +20,7 @@ LEAVE {
 
 my $window = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));
 
-$window.load_url("http://127.0.0.1:3000");
+$window.load-url("http://127.0.0.1:3000");
 
 $window.on-minimize(sub {
   "Window minimized!".say;
@@ -30,5 +30,5 @@ $window.on-maximize(sub {
   "Window maximized!".say;
 });
 
-$app.event_loop;
+$app.event-loop;
 

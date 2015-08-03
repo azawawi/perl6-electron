@@ -83,7 +83,7 @@ TODO document
 =begin pod
   TODO document
 =end pod
-  method event_loop {
+  method event-loop {
     loop {
       my $o = $.json-client.get_pending_events;
       my @events = @($o<events>);

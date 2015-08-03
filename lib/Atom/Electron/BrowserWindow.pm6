@@ -57,8 +57,8 @@ TODO document
 =begin pod
 TODO document
 =end pod
-  method load_url(Str $url) {
-    Atom::Electron::App.json-client.BrowserWindow-load_url(handle => $!handle, url => $url);
+  method load-url(Str $url) {
+    Atom::Electron::App.json-client.BrowserWindow-load-url(handle => $!handle, url => $url);
     return;
   }
 

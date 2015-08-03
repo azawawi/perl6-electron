@@ -12,9 +12,11 @@ LEAVE {
   $app.destroy;
 }
 
-my $win = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768), :show(False));
+my $win = Atom::Electron::BrowserWindow.new(
+  :x(100), :y(100), :width(1024), :height(768), :show(False)
+);
 
-$win.load_url("http://www.google.com");
+$win.load-url("http://www.google.com");
 
 $win.on-minimize( sub {
   "Window minimized!".say;
@@ -30,6 +32,6 @@ $win.on-devtools-closed( sub {
 
 $win.show;
 
-$app.event_loop;
+$app.event-loop;
 
 prompt("Press any key to exit");

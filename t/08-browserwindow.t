@@ -5,7 +5,7 @@ use Test;
 use lib 'lib';
 
 # Methods to test
-my @methods = 'load_url', 'show', 'on', 'on-page-title-updated',
+my @methods = 'load-url', 'show', 'on', 'on-page-title-updated',
   'on-close', 'on-closed', 'on-unresponsive', 'on-responsive',
   'on-blur', 'on-focus', 'on-maximize', 'on-unmaximize', 'on-minimize',
   'on-restore', 'on-resize', 'on-move', 'on-moved', 'on-enter-full-screen',
