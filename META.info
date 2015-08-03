@@ -10,6 +10,7 @@
 		"Atom::Electron::Clipboard"      : "lib/Atom/Electron/Clipboard.pm6",
 		"Atom::Electron::Dialog"         : "lib/Atom/Electron/Dialog.pm6",
 		"Atom::Electron::Process"        : "lib/Atom/Electron/Process.pm6",
+		"Atom::Electron::Menu"           : "lib/Atom/Electron/Menu.pm6",
 		"Atom::Electron::PowerMonitor"   : "lib/Atom/Electron/PowerMonitor.pm6",
 		"Atom::Electron::Screen"         : "lib/Atom/Electron/Screen.pm6",
 		"Atom::Electron::Shell"          : "lib/Atom/Electron/Shell.pm6",

@@ -12,6 +12,7 @@ class Atom::Electron {
   use Atom::Electron::BrowserWindow;
   use Atom::Electron::Clipboard;
   use Atom::Electron::Dialog;
+  use Atom::Electron::Menu;
   use Atom::Electron::PowerMonitor;
   use Atom::Electron::Process;
   use Atom::Electron::Screen;
