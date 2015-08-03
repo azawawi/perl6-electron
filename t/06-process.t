@@ -5,7 +5,7 @@ use Test;
 use lib 'lib';
 
 # Methods to test
-my @methods = 'versions', 'electron_version', 'chrome_version';
+my @methods = 'versions', 'electron-version', 'chrome-version';
 
 plan @methods.elems + 8;
 
@@ -38,12 +38,12 @@ ok $versions<chrome>, 'chrome key is found';
 
 my $v;
 
-$v = Atom::Electron::Process.chrome_version;
+$v = Atom::Electron::Process.chrome-version;
 diag "Chrome version: $v";
 ok $v ~~ Str, 'Chrome version string is a string';
 ok $v.elems > 0, 'Chrome version string is not empty';
 
-$v = Atom::Electron::Process.electron_version;
+$v = Atom::Electron::Process.electron-version;
 diag "Electron version: $v";
 ok $v ~~ Str, 'Electron version string is a string';
 ok $v.elems > 0, 'Electron version string is not empty';

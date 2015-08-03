@@ -16,14 +16,14 @@ class Atom::Electron::Process {
 =begin pod
   Returns the Electron version string
 =end pod
-  method electron_version {
+  method electron-version {
     return self.versions<electron>;
   }
 
 =begin pod
   Returns the chrome/chromium version string
 =end pod
-  method chrome_version {
+  method chrome-version {
     return self.versions<chrome>;
   }
 

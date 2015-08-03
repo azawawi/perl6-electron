@@ -10,7 +10,7 @@
 
     use Atom::Electron::Dialog;
     my $win = ...;  // window in which to show the dialog
-    say Atom::Electron::Dialog.show_open_dialog(
+    say Atom::Electron::Dialog.show-open-dialog(
       :properties( [ 'openFile', 'openDirectory', 'multiSelections' ] )
     );
 
@@ -49,9 +49,9 @@ class Atom::Electron::Dialog {
 
   Note: On Windows and Linux, an open dialog can not be both a file selector and a directory selector, so if you set properties to ['openFile', 'openDirectory'] on these platforms, a directory selector will be shown.
 =end pod
-  method show_open_dialog(:$browserWindow = Nil, :$options = {}) {
+  method show-open-dialog(:$browserWindow = Nil, :$options = {}) {
     my $handle = $browserWindow.defined ?? $browserWindow.handle !! -1;
-    my $result = Atom::Electron::App.json-client.Dialog-show_open_dialog(
+    my $result = Atom::Electron::App.json-client.Dialog-show-open-dialog(
       handle   => $handle,
       options  => $options
     );
@@ -75,9 +75,9 @@ class Atom::Electron::Dialog {
 
   If a callback is passed, the API call will be asynchronous and the result will be passed via callback(filename
 =end pod
-  method show_save_dialog(:$browserWindow = Nil, :$options = {}) {
+  method show-save-dialog(:$browserWindow = Nil, :$options = {}) {
     my $handle = $browserWindow.defined ?? $browserWindow.handle !! -1;
-    my $result = Atom::Electron::App.json-client.Dialog-show_save_dialog(
+    my $result = Atom::Electron::App.json-client.Dialog-show-save-dialog(
       handle   => $handle,
       options  => $options
     );
@@ -104,9 +104,9 @@ class Atom::Electron::Dialog {
 
   If a callback is passed, the API call will be asynchronous and the result will be passed via callback(response)
 =end pod
-  method show_message_box(:$browserWindow = Nil, :$options = {}) {
+  method show-message-box(:$browserWindow = Nil, :$options = {}) {
     my $handle = $browserWindow.defined ?? $browserWindow.handle !! -1;
-    my $result = Atom::Electron::App.json-client.Dialog-show_message_box(
+    my $result = Atom::Electron::App.json-client.Dialog-show-message-box(
       handle   => $handle,
       options  => $options
     );
@@ -118,8 +118,8 @@ class Atom::Electron::Dialog {
   This API can be called safely before the ready event of app module emits,
   it is usually used to report errors in early stage of startup.
 =end pod
-  method show_error_box(Str $text, Str $content) {
-    Atom::Electron::App.json-client.Dialog-show_error_box(
+  method show-error-box(Str $text, Str $content) {
+    Atom::Electron::App.json-client.Dialog-show-error-box(
       :text($text), :content($content)
     );
     return;

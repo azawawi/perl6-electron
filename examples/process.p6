@@ -13,8 +13,8 @@ LEAVE {
 
 say Atom::Electron::Process.versions.perl;
 
-say Atom::Electron::Process.electron_version;
+say Atom::Electron::Process.electron-version;
 
-say Atom::Electron::Process.chrome_version;
+say Atom::Electron::Process.chrome-version;
 
 prompt("Press any key to exit");

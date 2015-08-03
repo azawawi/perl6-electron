@@ -5,7 +5,7 @@ use Test;
 use lib 'lib';
 
 # Methods to test
-my @methods = 'show_open_dialog', 'show_save_dialog', 'show_message_box', 'show_error_box';
+my @methods = 'show-open-dialog', 'show-save-dialog', 'show-message-box', 'show-error-box';
 
 plan @methods.elems + 1;
 

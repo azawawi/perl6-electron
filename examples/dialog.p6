@@ -11,12 +11,12 @@ LEAVE {
   $app.destroy;
 }
 
-say Atom::Electron::Dialog.show_open_dialog.perl;
+say Atom::Electron::Dialog.show-open-dialog.perl;
 
-say Atom::Electron::Dialog.show_save_dialog.perl;
+say Atom::Electron::Dialog.show-save-dialog.perl;
 
-say Atom::Electron::Dialog.show_message_box.perl;
+say Atom::Electron::Dialog.show-message-box.perl;
 
-Atom::Electron::Dialog.show_error_box("Text", "Content");
+Atom::Electron::Dialog.show-error-box("Text", "Content");
 
 prompt("Press any key to exit");
