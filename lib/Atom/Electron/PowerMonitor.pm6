@@ -19,7 +19,7 @@ class Atom::Electron::PowerMonitor {
   Register an event listener
 TODO implement
 =end pod
-  method on($event_name, $listener) {
+  method on($name, $listener) {
     !!!
     return;
   }

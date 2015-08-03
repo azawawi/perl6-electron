@@ -10,7 +10,7 @@ class Atom::Electron::Screen {
   Register an event listener
 TODO implement
 =end pod
-  method on($event_name, $listener) {
+  method on($name, $listener) {
     !!!
     return;
   }
@@ -50,21 +50,21 @@ method on-display-metrics-changed($listener) {
   Returns the current absolute position of the mouse pointer.
 =end pod
   method get_cursor_screen_point {
-    return Atom::Electron::App.json-client.Screen-get_cursor_screen_point<result>;
+    return Atom::Electron::App.json-rpc.Screen-get_cursor_screen_point<result>;
   }
 
 =begin pod
   Returns the primary display.
 =end pod
   method get_primary_display {
-    return Atom::Electron::App.json-client.Screen-get_primary_display<result>;
+    return Atom::Electron::App.json-rpc.Screen-get_primary_display<result>;
   }
 
 =begin pod
   Returns an array of displays that are currently available.
 =end pod
   method get-all-displays {
-    return Atom::Electron::App.json-client.Screen-get-all-displays<result>;
+    return Atom::Electron::App.json-rpc.Screen-get-all-displays<result>;
   }
 
 =begin pod
@@ -74,7 +74,7 @@ method on-display-metrics-changed($listener) {
     Int y
 =end pod
   method get-display-nearest-point($point) {
-    return Atom::Electron::App.json-client.Screen-get-display-nearest-point(point => $point)<result>;
+    return Atom::Electron::App.json-rpc.Screen-get-display-nearest-point(point => $point)<result>;
   }
 
 =begin pod
@@ -86,6 +86,6 @@ method on-display-metrics-changed($listener) {
       Int height
 =end pod
   method get-display-matching($rect) {
-    return Atom::Electron::App.json-client.Screen-get-display-matching(rect => $rect)<result>;
+    return Atom::Electron::App.json-rpc.Screen-get-display-matching(rect => $rect)<result>;
   }
 }

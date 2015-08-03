@@ -9,23 +9,24 @@ class Atom::Electron::App {
   use File::Which;
   use JSON::RPC::Client;
 
-  has $!pc;
+  has $!electron_process;
   has @!listeners;
 
-  # singleton instance
+  # Singleton instance
   my Atom::Electron::App $instance;
-  my JSON::RPC::Client $json-client;
+
+  # The JSON RPC client
+  my JSON::RPC::Client $json-rpc;
 
   # No constructor allowed
   method new {
-    # Singleton.new dies.
     !!!
   }
   
 =begin pod
-  TODO document
+  The singleton instance of the Electron App.
+  Please note that App.new will die by design
 =end pod
-  # App.instance
   method instance { 
     if ! $instance.defined {
       $instance = Atom::Electron::App.bless;
@@ -35,24 +36,24 @@ class Atom::Electron::App {
   }
   
 =begin pod
-  TODO document
+  The JSON RPC Client
 =end pod
-  method json-client {
-    return $json-client;
+  method json-rpc {
+    return $json-rpc;
   }
 
 =begin pod
-TODO document
+  Internal method to initialize electron process along with JSON RPC client
 =end pod
   submethod initialize {
-    unless $!pc {
+    unless $!electron_process {
       fail("Cannot find electron in PATH") unless which('electron');
 
-      $!pc = Proc::Async.new( "electron", "lib/Atom/Electron/main_app" );
-      $!pc.start;
-      sleep 2;
+      $!electron_process = Proc::Async.new( "electron", "lib/Atom/Electron/main_app" );
+      $!electron_process.start;
+      sleep 1;
 
-      unless $json-client {
+      unless $json-rpc {
          # create new client with url to server
          sub transport ( Str :$json, Bool :$get_response ) {
            my $t = LWP::Simple.post(
@@ -63,42 +64,52 @@ TODO document
              $json);
            return $t.decode('utf-8');
          }
-         $json-client = JSON::RPC::Client.new( transport => &transport );
+         $json-rpc = JSON::RPC::Client.new( transport => &transport );
       }
     }
   }
-  
+
 =begin pod
   Destroy the singleton App by quitting it, sleeping a bit and
   then force killing the electron process
 =end pod
   method destroy {
-    $json-client.App-quit;
+    $json-rpc.App-quit;
     sleep 0.5;
-    if $!pc.defined {
-      $!pc.kill(SIGTERM);
+    if $!electron_process.defined {
+      $!electron_process.kill(SIGTERM);
     }
   }
   
 =begin pod
-  TODO document
+  Start processing and dispatching events. It also blocks the current thread.
 =end pod
   method event-loop {
+
     loop {
-      my $o = $.json-client.get_pending_events;
-      my @events = @($o<events>);
-      for @events -> $event {
+      # Process pending events indefinity
+      my $o = $.json-rpc.get-pending-events;
+      for @($o<events>) -> $event {
         for @!listeners -> $listener {
-          next if $listener<handle> != $event<handle>;
-          next if $listener<event_name> ne $event<event_name>;
+          next if $listener<id>.defined && $listener<id> != $event<id>;
+          next if $listener<name> ne $event<name>;
           $listener<listener>();
         }
       }
-      sleep 0.5;
+
+      # Sleep a bit to prevent 100% CPU usage
+      sleep 0.05;
     }
   }
 
-  method on(:$event_name, :$handle, :$listener) {
-    @!listeners.push({handle => $handle, event_name => $event_name, listener => $listener});
+=begin pod
+  Registers an event listener
+=end pod
+  method on(:$name, :$id, :$listener) {
+    @!listeners.push({
+      "id"        => $id,
+      "name"      => $name,
+      "listener"  => $listener
+    });
   }
 }

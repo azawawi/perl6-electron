@@ -27,7 +27,7 @@ class Atom::Electron::Clipboard {
   Returns the content in clipboard as plain text.
 =end pod
   method read-text(Str $type?) {
-    my $result = Atom::Electron::App.json-client.Clipboard-read-text(type => $type);
+    my $result = Atom::Electron::App.json-rpc.Clipboard-read-text(type => $type);
     return $result<text>;
   }
 
@@ -35,7 +35,7 @@ class Atom::Electron::Clipboard {
   Returns the content in clipboard as plain text.
 =end pod
   method write-text(Str $text, Str $type?) {
-    Atom::Electron::App.json-client.Clipboard-write-text(text => $text, type => $type);
+    Atom::Electron::App.json-rpc.Clipboard-write-text(text => $text, type => $type);
     return;
   }
 
@@ -43,7 +43,7 @@ class Atom::Electron::Clipboard {
   Clears everything in clipboard.
 =end pod
   method clear {
-    Atom::Electron::App.json-client.Clipboard-clear;
+    Atom::Electron::App.json-rpc.Clipboard-clear;
     return;
   }
 

@@ -10,7 +10,7 @@ class Atom::Electron::Process {
   Returns the process.version strings as a hash
 =end pod
   method versions {
-    return Atom::Electron::App.json-client.Process-versions<result>;
+    return Atom::Electron::App.json-rpc.Process-versions<result>;
   }
 
 =begin pod

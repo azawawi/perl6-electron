@@ -36,7 +36,7 @@ TODO document
      :$!kiosk       = False,
    ) 
    {
-     my $result = Atom::Electron::App.json-client.BrowserWindow-new(
+     my $result = Atom::Electron::App.json-rpc.BrowserWindow-new(
        x                 => $!x,
        y                 => $!y,
        width             => $!width, 
@@ -58,16 +58,16 @@ TODO document
 TODO document
 =end pod
   method load-url(Str $url) {
-    Atom::Electron::App.json-client.BrowserWindow-load-url(handle => $!handle, url => $url);
+    Atom::Electron::App.json-rpc.BrowserWindow-load-url(handle => $!handle, url => $url);
     return;
   }
 
 =begin pod
 TODO document
 =end pod
-  method on($event_name, $listener) {
-    Atom::Electron::App.json-client.BrowserWindow-on(handle => $!handle, event_name => $event_name);
-    Atom::Electron::App.instance.on(handle => $!handle, event_name => $event_name, listener => $listener);
+  method on($name, $listener) {
+    Atom::Electron::App.json-rpc.BrowserWindow-on(handle => $!handle, name => $name);
+    Atom::Electron::App.instance.on(handle => $!handle, name => $name, listener => $listener);
     return;
   }
 
@@ -75,7 +75,7 @@ TODO document
 TODO document
 =end pod
   method show {
-    Atom::Electron::App.json-client.BrowserWindow-show(handle => $!handle);
+    Atom::Electron::App.json-rpc.BrowserWindow-show(handle => $!handle);
     return;
   }
 

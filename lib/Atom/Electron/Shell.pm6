@@ -17,7 +17,7 @@ class Atom::Electron::Shell {
   Show the given file in a file manager. If possible, select the file.
 =end pod
   method show-item-in-folder(Str $full_path) {
-    Atom::Electron::App.json-client.Shell-show-item-in-folder(full_path => $full_path);
+    Atom::Electron::App.json-rpc.Shell-show-item-in-folder(full_path => $full_path);
     return;
   }
 
@@ -25,7 +25,7 @@ class Atom::Electron::Shell {
   Open the given file in the desktop's default manner.
 =end pod
   method open-item(Str $full_path) {
-    Atom::Electron::App.json-client.Shell-open-item(full_path => $full_path);
+    Atom::Electron::App.json-rpc.Shell-open-item(full_path => $full_path);
     return;
   }
 
@@ -34,7 +34,7 @@ class Atom::Electron::Shell {
   (For example, mailto: URLs in the default mail user agent.)
 =end pod
   method open-external(Str $url) {
-    Atom::Electron::App.json-client.Shell-open-external(url => $url);
+    Atom::Electron::App.json-rpc.Shell-open-external(url => $url);
     return;
   }
 
@@ -42,7 +42,7 @@ class Atom::Electron::Shell {
   Move the given file to trash and returns boolean status for the operation.
 =end pod
   method move-item-to-trash(Str $full_path) {
-    Atom::Electron::App.json-client.Shell-move-item-to-trash(full_path => $full_path);
+    Atom::Electron::App.json-rpc.Shell-move-item-to-trash(full_path => $full_path);
     return;
   }
 
@@ -50,7 +50,7 @@ class Atom::Electron::Shell {
   Play the beep sound.
 =end pod
   method beep {
-    Atom::Electron::App.json-client.Shell-beep;
+    Atom::Electron::App.json-rpc.Shell-beep;
     return;
   }
 
