@@ -7,8 +7,8 @@ use lib 'lib';
 # Methods to test
 my @methods = 'on', 'on-display-added', 'on-display-removed',
   'on-display-metrics-changed', 'get_cursor_screen_point',
-  'get_primary_display', 'get_all_displays', 'get_display_nearest_point',
-  'get_display_matching';
+  'get_primary_display', 'get-all-displays', 'get-display-nearest-point',
+  'get-display-matching';
 
 plan @methods.elems + 12;
 
@@ -43,16 +43,16 @@ $o = Atom::Electron::Screen.get_primary_display;
 ok $o<bounds>.defined, "bounds hash key found";
 ok $o<bounds><x>.defined, "bounds.x hash key found";
 
-$o = Atom::Electron::Screen.get_all_displays;
+$o = Atom::Electron::Screen.get-all-displays;
 ok $o.elems > 0, "Array with at least one screen";
 ok $o[0]<bounds>.defined, "bounds hash key found for the first screen";
 ok $o[0]<bounds><x>.defined, "bounds.x hash key found for the first screen";
 
-$o = Atom::Electron::Screen.get_display_nearest_point({x => 0, y => 0});
+$o = Atom::Electron::Screen.get-display-nearest-point({x => 0, y => 0});
 ok $o<bounds>.defined, "bounds hash key found";
 ok $o<bounds><x>.defined, "bounds.x hash key found";
 
-$o = Atom::Electron::Screen.get_display_matching(
+$o = Atom::Electron::Screen.get-display-matching(
   {x => 0, y => 0, width => 640, height => 480}
 );
 ok $o<bounds>.defined, "bounds hash key found";

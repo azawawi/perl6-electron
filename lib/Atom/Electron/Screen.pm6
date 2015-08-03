@@ -4,7 +4,7 @@
 =end pod
 class Atom::Electron::Screen {
 
-    use Atom::Electron::App;
+  use Atom::Electron::App;
 
 =begin pod
   Register an event listener
@@ -63,8 +63,8 @@ method on-display-metrics-changed($listener) {
 =begin pod
   Returns an array of displays that are currently available.
 =end pod
-  method get_all_displays {
-    return Atom::Electron::App.json-client.Screen-get_all_displays<result>;
+  method get-all-displays {
+    return Atom::Electron::App.json-client.Screen-get-all-displays<result>;
   }
 
 =begin pod
@@ -73,8 +73,8 @@ method on-display-metrics-changed($listener) {
     Int x
     Int y
 =end pod
-  method get_display_nearest_point($point) {
-    return Atom::Electron::App.json-client.Screen-get_display_nearest_point(point => $point)<result>;
+  method get-display-nearest-point($point) {
+    return Atom::Electron::App.json-client.Screen-get-display-nearest-point(point => $point)<result>;
   }
 
 =begin pod
@@ -85,7 +85,7 @@ method on-display-metrics-changed($listener) {
       Int width
       Int height
 =end pod
-  method get_display_matching($rect) {
-    return Atom::Electron::App.json-client.Screen-get_display_matching(rect => $rect)<result>;
+  method get-display-matching($rect) {
+    return Atom::Electron::App.json-client.Screen-get-display-matching(rect => $rect)<result>;
   }
 }
