@@ -12,15 +12,15 @@ LEAVE {
 }
 
 my $file = 'META.info';
-Atom::Electron::Shell.open_item($file);
+Atom::Electron::Shell.open-item($file);
 
-Atom::Electron::Shell.show_item_in_folder($file);
+Atom::Electron::Shell.show-item-in-folder($file);
 
-Atom::Electron::Shell.open_external("http://doc.perl6.org");
+Atom::Electron::Shell.open-external("http://doc.perl6.org");
 
 my $file-to-delete = "delete-me.txt";
 $file-to-delete.IO.spurt("Hello world");
-Atom::Electron::Shell.move_item_to_trash($file-to-delete);
+Atom::Electron::Shell.move-item-to-trash($file-to-delete);
 
 Atom::Electron::Shell.beep;
 

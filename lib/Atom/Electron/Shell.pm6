@@ -6,26 +6,26 @@
   An example of opening a URL in default browser:
 
     use Atom::Electron::Shell;
-    Atom::Electron::Shell.open_external("http://doc.perl6.org");
+    Atom::Electron::Shell.open-external("http://doc.perl6.org");
 
 =end pod
 class Atom::Electron::Shell {
 
-    use Atom::Electron::App;
+  use Atom::Electron::App;
 
 =begin pod
   Show the given file in a file manager. If possible, select the file.
 =end pod
-  method show_item_in_folder(Str $full_path) {
-    Atom::Electron::App.json-client.Shell-show_item_in_folder(full_path => $full_path);
+  method show-item-in-folder(Str $full_path) {
+    Atom::Electron::App.json-client.Shell-show-item-in-folder(full_path => $full_path);
     return;
   }
 
 =begin pod
   Open the given file in the desktop's default manner.
 =end pod
-  method open_item(Str $full_path) {
-    Atom::Electron::App.json-client.Shell-open_item(full_path => $full_path);
+  method open-item(Str $full_path) {
+    Atom::Electron::App.json-client.Shell-open-item(full_path => $full_path);
     return;
   }
 
@@ -33,16 +33,16 @@ class Atom::Electron::Shell {
   Open the given external protocol URL in the desktop's default manner. 
   (For example, mailto: URLs in the default mail user agent.)
 =end pod
-  method open_external(Str $url) {
-    Atom::Electron::App.json-client.Shell-open_external(url => $url);
+  method open-external(Str $url) {
+    Atom::Electron::App.json-client.Shell-open-external(url => $url);
     return;
   }
 
 =begin pod
   Move the given file to trash and returns boolean status for the operation.
 =end pod
-  method move_item_to_trash(Str $full_path) {
-    Atom::Electron::App.json-client.Shell-move_item_to_trash(full_path => $full_path);
+  method move-item-to-trash(Str $full_path) {
+    Atom::Electron::App.json-client.Shell-move-item-to-trash(full_path => $full_path);
     return;
   }
 

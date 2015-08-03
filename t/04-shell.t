@@ -5,8 +5,8 @@ use Test;
 use lib 'lib';
 
 # Methods to test
-my @methods = 'show_item_in_folder', 'open_item', 'open_external',
-  'move_item_to_trash', 'beep';
+my @methods = 'show-item-in-folder', 'open-item', 'open-external',
+  'move-item-to-trash', 'beep';
 
 plan @methods.elems + 3;
 
@@ -35,5 +35,5 @@ LEAVE {
 my $file-to-delete = "delete-me.txt";
 $file-to-delete.IO.spurt("Hello world");
 ok $file-to-delete.IO ~~ :e, "File exists";
-Atom::Electron::Shell.move_item_to_trash($file-to-delete);
+Atom::Electron::Shell.move-item-to-trash($file-to-delete);
 ok $file-to-delete.IO !~~ :e, "File moved to trash";
