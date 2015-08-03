@@ -5,7 +5,7 @@ use Test;
 use lib 'lib';
 
 # Methods to test
-my @methods = 'write_text', 'read_text', 'clear';
+my @methods = 'write-text', 'read-text', 'clear';
 
 plan @methods.elems + 3;
 
@@ -33,13 +33,13 @@ LEAVE {
 
 # Write to clipboard
 my $t1 = 'Hello world';
-Atom::Electron::Clipboard.write_text($t1);
+Atom::Electron::Clipboard.write-text($t1);
 
 # Read and match if it is the same
-my $t2 = Atom::Electron::Clipboard.read_text;
-ok $t1 eq $t2, "write_text/read_text matched";
+my $t2 = Atom::Electron::Clipboard.read-text;
+ok $t1 eq $t2, "write-text/read-text matched";
 
 # Clear clipboard and check if its empty
 Atom::Electron::Clipboard.clear;
-my $empty = Atom::Electron::Clipboard.read_text;
+my $empty = Atom::Electron::Clipboard.read-text;
 ok $empty eq '', "clear clipboard worked";

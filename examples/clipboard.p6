@@ -13,13 +13,13 @@ LEAVE {
 
 my $text = 'Hello world';
 say "Writing to clipboard the following: $text";
-Atom::Electron::Clipboard.write_text($text);
+Atom::Electron::Clipboard.write-text($text);
 
-say "Read from clipboard the following: " ~ Atom::Electron::Clipboard.read_text;
+say "Read from clipboard the following: " ~ Atom::Electron::Clipboard.read-text;
 
 say "Clearing clipboard";
 Atom::Electron::Clipboard.clear;
 
-say "Read from clipboard the following: " ~ Atom::Electron::Clipboard.read_text;
+say "Read from clipboard the following: " ~ Atom::Electron::Clipboard.read-text;
 
 prompt("Press any key to exit");

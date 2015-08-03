@@ -8,14 +8,14 @@
   An example of writing a string to clipboard:
 
     use Atom::Electron::Clipboard;
-    Atom::Electron::Clipboard.write_text('Example String');
+    Atom::Electron::Clipboard.write-text('Example String');
 
   On X Window systems, there is also a selection clipboard, to manipulate in it
   you need to pass selection to each method:
 
     use Atom::Electron::Clipboard;
-    Atom::Electron::Clipboard.write_text('Example String', 'selection');
-    say Atom::Electron::Clipboard.read_text('selection');
+    Atom::Electron::Clipboard.write-text('Example String', 'selection');
+    say Atom::Electron::Clipboard.read-text('selection');
 
     TODO implement remaining parts of Atom::Electron::Clipboard
 =end pod
@@ -26,16 +26,16 @@ class Atom::Electron::Clipboard {
 =begin pod
   Returns the content in clipboard as plain text.
 =end pod
-  method read_text(Str $type?) {
-    my $result = Atom::Electron::App.json-client.Clipboard-read_text(type => $type);
+  method read-text(Str $type?) {
+    my $result = Atom::Electron::App.json-client.Clipboard-read-text(type => $type);
     return $result<text>;
   }
 
 =begin pod
   Returns the content in clipboard as plain text.
 =end pod
-  method write_text(Str $text, Str $type?) {
-    Atom::Electron::App.json-client.Clipboard-write_text(text => $text, type => $type);
+  method write-text(Str $text, Str $type?) {
+    Atom::Electron::App.json-client.Clipboard-write-text(text => $text, type => $type);
     return;
   }
 
