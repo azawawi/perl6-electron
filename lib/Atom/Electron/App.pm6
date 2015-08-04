@@ -49,8 +49,12 @@ class Atom::Electron::App {
     unless $!electron_process {
       fail("Cannot find electron in PATH") unless which('electron');
 
+      #TODO find lib/Atom/Electron location and use it here
       $!electron_process = Proc::Async.new( "electron", "lib/Atom/Electron/main_app" );
       $!electron_process.start;
+
+      #TODO instead of sleeping we should be sensing whether the RPC::JSON is
+      #up or not
       sleep 1;
 
       unless $json-rpc {
