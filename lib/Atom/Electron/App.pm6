@@ -55,7 +55,7 @@ class Atom::Electron::App {
 
       #TODO instead of sleeping we should be sensing whether the RPC::JSON is
       #up or not
-      sleep 1;
+      sleep 2;
 
       unless $json-rpc {
          # create new client with url to server
