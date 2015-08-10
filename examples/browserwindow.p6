@@ -32,6 +32,6 @@ $win.on-devtools-closed( sub {
 
 $win.show;
 
-$app.event-loop;
+$app.run;
 
 prompt("Press any key to exit");

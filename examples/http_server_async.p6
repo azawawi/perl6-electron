@@ -37,4 +37,4 @@ $window.on-maximize( sub {
   "Window maximized!".say;
 });
 
-$app.event-loop;
+$app.run;

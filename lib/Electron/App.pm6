@@ -88,7 +88,7 @@ class Electron::App {
 =begin pod
   Start processing and dispatching events. It also blocks the current thread.
 =end pod
-  method event-loop {
+  method run {
 
     loop {
       # Process pending events indefinity
