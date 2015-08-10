@@ -8,7 +8,7 @@ use Electron;
 
 my $app = Electron::App.instance;
 LEAVE {
-  $app.destroy;
+  $app.destroy if $app.defined;
 }
 
 say Electron::Screen.get_cursor_screen_point.perl;

@@ -14,8 +14,8 @@ use Electron;
 
 my $app = Electron::App.instance;
 LEAVE {
-  $app.destroy;
-  $p.kill;
+  $app.destroy if $app.defined;
+  $p.kill if $p.defined;
 }
 
 my $window = Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));

@@ -8,7 +8,7 @@ use Electron;
 
 my $app = Electron::App.instance;
 LEAVE {
-  $app.destroy;
+  $app.destroy if $app.defined;
 }
 
 my $file = 'META.info';

@@ -22,7 +22,7 @@ use Electron;
 
 my $app = Electron::App.instance;
 LEAVE {
-  $app.destroy;
+  $app.destroy if $app.defined;
 }
 
 my $window = Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));
