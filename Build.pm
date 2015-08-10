@@ -8,7 +8,7 @@ class Build is Panda::Builder {
       use File::Which;
       unless which('electron').defined {
         say q{
-  Electron seems to be not installed. Please follow the instructions in
+  electron is not found in your PATH. Please follow the instructions in
   https://github.com/azawawi/perl6-electron/blob/master/README.md
   
   Thanks for using this module :)
