@@ -9,9 +9,9 @@ my @methods = 'show-open-dialog', 'show-save-dialog', 'show-message-box', 'show-
 
 plan @methods.elems + 1;
 
-use Atom::Electron::Dialog;
-ok 1, "'use Atom::Electron::Dialog' worked!";
+use Electron::Dialog;
+ok 1, "'use Electron::Dialog' worked!";
 
 for @methods -> $method {
-  ok Atom::Electron::Dialog.can($method), "Dialog.$method is found";
+  ok Electron::Dialog.can($method), "Dialog.$method is found";
 }

@@ -15,9 +15,9 @@ my @methods = 'load-url', 'show', 'on', 'on-page-title-updated',
 
 plan @methods.elems + 1;
 
-use Atom::Electron::BrowserWindow;
-ok 1, "'use Atom::Electron::BrowserWindow' worked!";
+use Electron::BrowserWindow;
+ok 1, "'use Electron::BrowserWindow' worked!";
 
 for @methods -> $method {
-  ok Atom::Electron::BrowserWindow.can($method), "BrowserWindow.$method is found";
+  ok Electron::BrowserWindow.can($method), "BrowserWindow.$method is found";
 }

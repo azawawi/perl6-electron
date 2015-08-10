@@ -8,9 +8,9 @@
 
   An example of showing a dialog to select multiple files and directories:
 
-    use Atom::Electron::Dialog;
+    use Electron::Dialog;
     my $win = ...;  // window in which to show the dialog
-    say Atom::Electron::Dialog.show-open-dialog(
+    say Electron::Dialog.show-open-dialog(
       :properties( [ 'openFile', 'openDirectory', 'multiSelections' ] )
     );
 
@@ -18,9 +18,9 @@
     have to do is provide a BrowserWindow reference in the browserWindow
     parameter.
 =end pod
-class Atom::Electron::Dialog {
+class Electron::Dialog {
 
-  use Atom::Electron::App;
+  use Electron::App;
 
 =begin pod
   Opens the open file dialog with the following options:
@@ -51,7 +51,7 @@ class Atom::Electron::Dialog {
 =end pod
   method show-open-dialog(:$browserWindow = Nil, :$options = {}) {
     my $handle = $browserWindow.defined ?? $browserWindow.handle !! -1;
-    my $result = Atom::Electron::App.json-rpc.Dialog-show-open-dialog(
+    my $result = Electron::App.json-rpc.Dialog-show-open-dialog(
       handle   => $handle,
       options  => $options
     );
@@ -77,7 +77,7 @@ class Atom::Electron::Dialog {
 =end pod
   method show-save-dialog(:$browserWindow = Nil, :$options = {}) {
     my $handle = $browserWindow.defined ?? $browserWindow.handle !! -1;
-    my $result = Atom::Electron::App.json-rpc.Dialog-show-save-dialog(
+    my $result = Electron::App.json-rpc.Dialog-show-save-dialog(
       handle   => $handle,
       options  => $options
     );
@@ -106,7 +106,7 @@ class Atom::Electron::Dialog {
 =end pod
   method show-message-box(:$browserWindow = Nil, :$options = {}) {
     my $handle = $browserWindow.defined ?? $browserWindow.handle !! -1;
-    my $result = Atom::Electron::App.json-rpc.Dialog-show-message-box(
+    my $result = Electron::App.json-rpc.Dialog-show-message-box(
       handle   => $handle,
       options  => $options
     );
@@ -119,7 +119,7 @@ class Atom::Electron::Dialog {
   it is usually used to report errors in early stage of startup.
 =end pod
   method show-error-box(Str $text, Str $content) {
-    Atom::Electron::App.json-rpc.Dialog-show-error-box(
+    Electron::App.json-rpc.Dialog-show-error-box(
       :text($text), :content($content)
     );
     return;

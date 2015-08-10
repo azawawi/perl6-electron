@@ -1,21 +1,21 @@
 {
-	"name"        : "Atom::Electron",
+	"name"        : "Electron",
 	"version"     : "*",
 	"description" : "Cross-platform Perl 6 desktop web-based applications using the Electron platform",
 	"depends"     : [ "File::Which", "JSON::RPC" ],
 	"provides"    : {
-		"Atom::Electron"                 : "lib/Atom/Electron.pm6",
-		"Atom::Electron::App"            : "lib/Atom/Electron/App.pm6",
-		"Atom::Electron::BrowserWindow"  : "lib/Atom/Electron/BrowserWindow.pm6",
-		"Atom::Electron::Clipboard"      : "lib/Atom/Electron/Clipboard.pm6",
-		"Atom::Electron::Dialog"         : "lib/Atom/Electron/Dialog.pm6",
-		"Atom::Electron::Process"        : "lib/Atom/Electron/Process.pm6",
-		"Atom::Electron::Menu"           : "lib/Atom/Electron/Menu.pm6",
-		"Atom::Electron::MenuItem"       : "lib/Atom/Electron/MenuItem.pm6",
-		"Atom::Electron::PowerMonitor"   : "lib/Atom/Electron/PowerMonitor.pm6",
-		"Atom::Electron::Screen"         : "lib/Atom/Electron/Screen.pm6",
-		"Atom::Electron::Shell"          : "lib/Atom/Electron/Shell.pm6",
-		"Atom::Electron::Tray"           : "lib/Atom/Electron/Tray.pm6"
+		"Electron"                 : "lib/Atom/Electron.pm6",
+		"Electron::App"            : "lib/Atom/Electron/App.pm6",
+		"Electron::BrowserWindow"  : "lib/Atom/Electron/BrowserWindow.pm6",
+		"Electron::Clipboard"      : "lib/Atom/Electron/Clipboard.pm6",
+		"Electron::Dialog"         : "lib/Atom/Electron/Dialog.pm6",
+		"Electron::Process"        : "lib/Atom/Electron/Process.pm6",
+		"Electron::Menu"           : "lib/Atom/Electron/Menu.pm6",
+		"Electron::MenuItem"       : "lib/Atom/Electron/MenuItem.pm6",
+		"Electron::PowerMonitor"   : "lib/Atom/Electron/PowerMonitor.pm6",
+		"Electron::Screen"         : "lib/Atom/Electron/Screen.pm6",
+		"Electron::Shell"          : "lib/Atom/Electron/Shell.pm6",
+		"Electron::Tray"           : "lib/Atom/Electron/Tray.pm6"
 	},
 	"source-url"  : "git://github.com/azawawi/perl6-atom-electron.git"
 }

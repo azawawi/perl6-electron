@@ -7,27 +7,27 @@
   The clipboard API wrapper provides methods to do copy/paste operations.
   An example of writing a string to clipboard:
 
-    use Atom::Electron::Clipboard;
-    Atom::Electron::Clipboard.write-text('Example String');
+    use Electron::Clipboard;
+    Electron::Clipboard.write-text('Example String');
 
   On X Window systems, there is also a selection clipboard, to manipulate in it
   you need to pass selection to each method:
 
-    use Atom::Electron::Clipboard;
-    Atom::Electron::Clipboard.write-text('Example String', 'selection');
-    say Atom::Electron::Clipboard.read-text('selection');
+    use Electron::Clipboard;
+    Electron::Clipboard.write-text('Example String', 'selection');
+    say Electron::Clipboard.read-text('selection');
 
-    TODO implement remaining parts of Atom::Electron::Clipboard
+    TODO implement remaining parts of Electron::Clipboard
 =end pod
-class Atom::Electron::Clipboard {
+class Electron::Clipboard {
 
-  use Atom::Electron::App;
+  use Electron::App;
 
 =begin pod
   Returns the content in clipboard as plain text.
 =end pod
   method read-text(Str $type?) {
-    my $result = Atom::Electron::App.json-rpc.Clipboard-read-text(type => $type);
+    my $result = Electron::App.json-rpc.Clipboard-read-text(type => $type);
     return $result<text>;
   }
 
@@ -35,7 +35,7 @@ class Atom::Electron::Clipboard {
   Returns the content in clipboard as plain text.
 =end pod
   method write-text(Str $text, Str $type?) {
-    Atom::Electron::App.json-rpc.Clipboard-write-text(text => $text, type => $type);
+    Electron::App.json-rpc.Clipboard-write-text(text => $text, type => $type);
     return;
   }
 
@@ -43,7 +43,7 @@ class Atom::Electron::Clipboard {
   Clears everything in clipboard.
 =end pod
   method clear {
-    Atom::Electron::App.json-rpc.Clipboard-clear;
+    Electron::App.json-rpc.Clipboard-clear;
     return;
   }
 

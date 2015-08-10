@@ -10,11 +10,11 @@ my @methods = 'show-item-in-folder', 'open-item', 'open-external',
 
 plan @methods.elems + 3;
 
-use Atom::Electron::Shell;
-ok 1, "'use Atom::Electron::Shell' worked!";
+use Electron::Shell;
+ok 1, "'use Electron::Shell' worked!";
 
 for @methods -> $method {
-  ok Atom::Electron::Shell.can($method), "Shell.$method is found";
+  ok Electron::Shell.can($method), "Shell.$method is found";
 }
 
 {
@@ -26,7 +26,7 @@ for @methods -> $method {
   }
 }
 
-my $app = Atom::Electron::App.instance;
+my $app = Electron::App.instance;
 LEAVE {
   diag 'Destroy electron app';
   $app.destroy;
@@ -35,5 +35,5 @@ LEAVE {
 my $file-to-delete = "delete-me.txt";
 $file-to-delete.IO.spurt("Hello world");
 ok $file-to-delete.IO ~~ :e, "File exists";
-Atom::Electron::Shell.move-item-to-trash($file-to-delete);
+Electron::Shell.move-item-to-trash($file-to-delete);
 ok $file-to-delete.IO !~~ :e, "File moved to trash";

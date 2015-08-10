@@ -18,14 +18,14 @@ $server.register(sub ($request, $response, $next) {
 $server.listen;
 
 # Now to our application :)
-use Atom::Electron;
+use Electron;
 
-my $app = Atom::Electron::App.instance;
+my $app = Electron::App.instance;
 LEAVE {
   $app.destroy;
 }
 
-my $window = Atom::Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));
+my $window = Electron::BrowserWindow.new(:x(100), :y(100), :width(1024), :height(768));
 
 $window.load-url("http://127.0.0.1:3000");
 

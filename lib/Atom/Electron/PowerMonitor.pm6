@@ -5,15 +5,15 @@
   This is used to monitor the power state change. You should only use it after
   the ready event of an application is fired.
 
-    use Atom::Electron::PowerMonitor;
-    Atom::Electron::PowerMonitor.on-suspend(sub {
+    use Electron::PowerMonitor;
+    Electron::PowerMonitor.on-suspend(sub {
         say 'The system is going to sleep';
     });
 
 =end pod
-class Atom::Electron::PowerMonitor {
+class Electron::PowerMonitor {
 
-    use Atom::Electron::App;
+    use Electron::App;
 
 =begin pod
   Register an event listener

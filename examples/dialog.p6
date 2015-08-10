@@ -4,19 +4,19 @@ use v6;
 
 use lib 'lib';
 
-use Atom::Electron;
+use Electron;
 
-my $app = Atom::Electron::App.instance;
+my $app = Electron::App.instance;
 LEAVE {
   $app.destroy;
 }
 
-say Atom::Electron::Dialog.show-open-dialog.perl;
+say Electron::Dialog.show-open-dialog.perl;
 
-say Atom::Electron::Dialog.show-save-dialog.perl;
+say Electron::Dialog.show-save-dialog.perl;
 
-say Atom::Electron::Dialog.show-message-box.perl;
+say Electron::Dialog.show-message-box.perl;
 
-Atom::Electron::Dialog.show-error-box("Text", "Content");
+Electron::Dialog.show-error-box("Text", "Content");
 
 prompt("Press any key to exit");

@@ -7,5 +7,5 @@ use lib 'lib';
 # Methods to test
 plan 1;
 
-use Atom::Electron::Menu;
-ok 1, "'use Atom::Electron::Menu' worked!";
+use Electron::Menu;
+ok 1, "'use Electron::Menu' worked!";

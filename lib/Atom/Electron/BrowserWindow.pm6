@@ -4,11 +4,11 @@
   and
   https://github.com/atom/electron/blob/master/docs/api/frameless-window.md
 
-  TODO implement remaining parts of Atom::Electron::BrowserWindow
+  TODO implement remaining parts of Electron::BrowserWindow
 =end pod
-class Atom::Electron::BrowserWindow {
+class Electron::BrowserWindow {
 
-  use Atom::Electron::App;
+  use Electron::App;
 
   has Int $!handle;
   has Int $.x;
@@ -36,7 +36,7 @@ TODO document
      :$!kiosk       = False,
    ) 
    {
-     my $result = Atom::Electron::App.json-rpc.BrowserWindow-new(
+     my $result = Electron::App.json-rpc.BrowserWindow-new(
        x                 => $!x,
        y                 => $!y,
        width             => $!width, 
@@ -58,7 +58,7 @@ TODO document
 TODO document
 =end pod
   method load-url(Str $url) {
-    Atom::Electron::App.json-rpc.BrowserWindow-load-url(handle => $!handle, url => $url);
+    Electron::App.json-rpc.BrowserWindow-load-url(handle => $!handle, url => $url);
     return;
   }
 
@@ -66,8 +66,8 @@ TODO document
 TODO document
 =end pod
   method on($name, $listener) {
-    Atom::Electron::App.json-rpc.BrowserWindow-on(handle => $!handle, name => $name);
-    Atom::Electron::App.instance.on(handle => $!handle, name => $name, listener => $listener);
+    Electron::App.json-rpc.BrowserWindow-on(handle => $!handle, name => $name);
+    Electron::App.instance.on(handle => $!handle, name => $name, listener => $listener);
     return;
   }
 
@@ -75,7 +75,7 @@ TODO document
 TODO document
 =end pod
   method show {
-    Atom::Electron::App.json-rpc.BrowserWindow-show(handle => $!handle);
+    Electron::App.json-rpc.BrowserWindow-show(handle => $!handle);
     return;
   }
 

@@ -2,9 +2,9 @@
   This is the screen API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/app.md
 
-  TODO implement remaining parts of Atom::Electron::App
+  TODO implement remaining parts of Electron::App
 =end pod
-class Atom::Electron::App {
+class Electron::App {
 
   use File::Which;
   use JSON::RPC::Client;
@@ -13,7 +13,7 @@ class Atom::Electron::App {
   has @!listeners;
 
   # Singleton instance
-  my Atom::Electron::App $instance;
+  my Electron::App $instance;
 
   # The JSON RPC client
   my JSON::RPC::Client $json-rpc;
@@ -29,7 +29,7 @@ class Atom::Electron::App {
 =end pod
   method instance { 
     if ! $instance.defined {
-      $instance = Atom::Electron::App.bless;
+      $instance = Electron::App.bless;
       $instance.initialize;
     }
     $instance;

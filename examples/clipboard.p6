@@ -4,22 +4,22 @@ use v6;
 
 use lib 'lib';
 
-use Atom::Electron;
+use Electron;
 
-my $app = Atom::Electron::App.instance;
+my $app = Electron::App.instance;
 LEAVE {
   $app.destroy;
 }
 
 my $text = 'Hello world';
 say "Writing to clipboard the following: $text";
-Atom::Electron::Clipboard.write-text($text);
+Electron::Clipboard.write-text($text);
 
-say "Read from clipboard the following: " ~ Atom::Electron::Clipboard.read-text;
+say "Read from clipboard the following: " ~ Electron::Clipboard.read-text;
 
 say "Clearing clipboard";
-Atom::Electron::Clipboard.clear;
+Electron::Clipboard.clear;
 
-say "Read from clipboard the following: " ~ Atom::Electron::Clipboard.read-text;
+say "Read from clipboard the following: " ~ Electron::Clipboard.read-text;
 
 prompt("Press any key to exit");

@@ -1,4 +1,4 @@
-# Atom::Electron
+# Electron
 [![Build Status](https://travis-ci.org/azawawi/perl6-atom-electron.svg?branch=master)](https://travis-ci.org/azawawi/perl6-atom-electron)
 
 The goal is to write cross-platform Perl 6 desktop applications using
@@ -43,12 +43,12 @@ can be called from the command line.
 After a success installation, electron should be installed in
 ``%USERPROFILE%\AppData\Roaming\npm\electron.cmd``
 
-## Atom::Electron Installation
+## Electron Installation
 
 To install it using Panda (a module management tool bundled with Rakudo Star):
 
     panda update
-    panda install Atom::Electron
+    panda install Electron
 
 ## Testing
 
