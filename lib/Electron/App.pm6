@@ -49,10 +49,19 @@ class Electron::App {
     unless $!electron_process {
       fail("Cannot find electron in PATH") unless which('electron');
 
-      my $app_path = $*SPEC.catfile($?FILE.IO.dirname, "main_app");
-      fail("Cannot find electron main app from '$?FILE'")
-        if $*SPEC.catfile($app_path, "main.js").IO !~~ :e;
+      # Find Electron/main_app folder in @*INC
+      my $app_path;
+      for @*INC -> $lib is copy {
+        $lib = $lib.subst(/^ \w+ '#'/,"");
+        my $f = $*SPEC.catfile($lib, "Electron/main_app");
+        if $f.IO ~~ :e {
+            $app_path = $f;
+            last;
+        }
+      }
+      fail("Cannot find electron main app") unless $app_path.defined;
 
+      # Start the electron main process
       $!electron_process = Proc::Async.new( "electron", $app_path );
       $!electron_process.start;
 
