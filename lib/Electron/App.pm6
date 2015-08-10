@@ -49,8 +49,11 @@ class Electron::App {
     unless $!electron_process {
       fail("Cannot find electron in PATH") unless which('electron');
 
-      #TODO find lib/Electron location and use it here
-      $!electron_process = Proc::Async.new( "electron", "lib/Electron/main_app" );
+      my $app_path = $*SPEC.catfile($?FILE.IO.dirname, "main_app");
+      fail("Cannot find electron main app from '$?FILE'")
+        if $*SPEC.catfile($app_path, "main.js").IO !~~ :e;
+
+      $!electron_process = Proc::Async.new( "electron", $app_path );
       $!electron_process.start;
 
       #TODO instead of sleeping we should be sensing whether the RPC::JSON is
