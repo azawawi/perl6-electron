@@ -19,32 +19,30 @@
 
     TODO implement remaining parts of Electron::Clipboard
 =end pod
-class Electron::Clipboard {
+unit class Electron::Clipboard;
 
-  use Electron::App;
-
-=begin pod
-  Returns the content in clipboard as plain text.
-=end pod
-  method read-text(Str $type?) {
-    my $result = Electron::App.json-rpc.Clipboard-read-text(type => $type);
-    return $result<text>;
-  }
+use Electron::App;
 
 =begin pod
-  Returns the content in clipboard as plain text.
+Returns the content in clipboard as plain text.
 =end pod
-  method write-text(Str $text, Str $type?) {
-    Electron::App.json-rpc.Clipboard-write-text(text => $text, type => $type);
-    return;
-  }
+method read-text(Str $type?) {
+  my $result = Electron::App.json-rpc.Clipboard-read-text(type => $type);
+  return $result<text>;
+}
 
 =begin pod
-  Clears everything in clipboard.
+Returns the content in clipboard as plain text.
 =end pod
-  method clear {
-    Electron::App.json-rpc.Clipboard-clear;
-    return;
-  }
+method write-text(Str $text, Str $type?) {
+  Electron::App.json-rpc.Clipboard-write-text(text => $text, type => $type);
+  return;
+}
 
+=begin pod
+Clears everything in clipboard.
+=end pod
+method clear {
+  Electron::App.json-rpc.Clipboard-clear;
+  return;
 }

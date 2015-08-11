@@ -11,49 +11,48 @@
     });
 
 =end pod
-class Electron::PowerMonitor {
+unit class Electron::PowerMonitor;
 
-    use Electron::App;
+use Electron::App;
 
 =begin pod
-  Register an event listener
+Register an event listener
 TODO implement
 =end pod
-  method on($name, $listener) {
-    !!!
-    return;
-  }
-
-=begin pod
-  Register an event to be notifed when the system is suspending.
-=end pod
-  method on-suspend($listener) {
-    self.on('suspend', $listener);
-    return;
-  }
-
-=begin pod
-  Register an event to be notifed when the system is resuming.
-=end pod
-  method on-resume($listener) {
-    self.on('resume', $listener);
-    return;
-  }
-
-=begin pod
-  Register an event to be notifed when the system changes to AC power.
-=end pod
-  method on-ac($listener) {
-    self.on('on-ac', $listener);
-    return;
-  }
-
-=begin pod
-  Register an event to be notifed when the system changes to battery power.
-=end pod
-  method on-battery($listener) {
-    self.on('on-battery', $listener);
-    return;
-  }
-
+method on($name, $listener) {
+  !!!
+  return;
 }
+
+=begin pod
+Register an event to be notifed when the system is suspending.
+=end pod
+method on-suspend($listener) {
+  self.on('suspend', $listener);
+  return;
+}
+
+=begin pod
+Register an event to be notifed when the system is resuming.
+=end pod
+method on-resume($listener) {
+  self.on('resume', $listener);
+  return;
+}
+
+=begin pod
+Register an event to be notifed when the system changes to AC power.
+=end pod
+method on-ac($listener) {
+  self.on('on-ac', $listener);
+  return;
+}
+
+=begin pod
+Register an event to be notifed when the system changes to battery power.
+=end pod
+method on-battery($listener) {
+  self.on('on-battery', $listener);
+  return;
+}
+

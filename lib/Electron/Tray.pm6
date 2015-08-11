@@ -4,8 +4,6 @@
 
   TODO implement Electron::Tray
 =end pod
-class Electron::Tray {
+unit class Electron::Tray;
 
-  use Electron::App;
-
-}
+use Electron::App;

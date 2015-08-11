@@ -4,8 +4,6 @@
 
   TODO implement Electron::MenuItem
 =end pod
-class Electron::MenuItem {
+unit class Electron::MenuItem;
 
   use Electron::App;
-
-}

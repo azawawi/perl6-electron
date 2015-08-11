@@ -4,8 +4,6 @@
 
   TODO implement Electron::Menu
 =end pod
-class Electron::Menu {
+unit class Electron::Menu;
 
-  use Electron::App;
-
-}
+use Electron::App;
