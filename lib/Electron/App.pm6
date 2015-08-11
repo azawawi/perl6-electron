@@ -65,22 +65,33 @@ submethod initialize {
     $!electron_process = Proc::Async.new( "electron", $app_path );
     $!electron_process.start;
 
-    #TODO instead of sleeping we should be sensing whether the RPC::JSON is
-    #up or not
-    sleep 2;
-
+    # Try to create a JSON RPC client for MAX_TRIES times
+    my constant MAX_TRIES = 3;
+    my constant RETRY_TIMEOUT = 0.5;
     unless $json-rpc {
-       # create new client with url to server
-       sub transport ( Str :$json, Bool :$get_response ) {
-         my $t = LWP::Simple.post(
-           'http://127.0.0.1:3333',
-           {
-             'Content-Type' => 'application/json'
-           },
-           $json);
-         return $t.decode('utf-8');
-       }
-       $json-rpc = JSON::RPC::Client.new( transport => &transport );
+      for 1..MAX_TRIES {
+        # Create json rpc client
+        $json-rpc = JSON::RPC::Client.new(
+          transport => sub (Str :$json, Bool :$get_response) {
+            my $t = LWP::Simple.post(
+              'http://127.0.0.1:3333',
+              { 'Content-Type' => 'application/json' },
+              $json
+            );
+            return $t.decode('utf-8');
+          }
+        );
+
+        # We're done if the electron main process json rpc server pongs back
+        last if $json-rpc.ping eq 'pong';
+
+        CATCH {
+          default {
+            # We failed... Retry after timeout
+            sleep RETRY_TIMEOUT;
+          }
+        }
+      }
     }
   }
 }
