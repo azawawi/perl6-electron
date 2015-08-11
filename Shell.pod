@@ -1,4 +1,4 @@
-=begin pod
+=head1 pod
   This is the shell API wrapper which is described in
   https://github.com/atom/electron/blob/master/docs/api/shell.md
 
@@ -49,5 +49,3 @@ method beep {
   Electron::App.json-rpc.Shell-beep;
   return;
 }
-
-=end pod
