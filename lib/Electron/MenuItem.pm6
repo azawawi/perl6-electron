@@ -6,4 +6,4 @@
 =end pod
 unit class Electron::MenuItem;
 
-  use Electron::App;
+use Electron::App;
