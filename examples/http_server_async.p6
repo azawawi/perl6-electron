@@ -2,7 +2,7 @@
 
 use v6;
 
-use lib 'lib';
+
 
 # Hello world from HTTP::Server::Async
 use HTTP::Server::Async;

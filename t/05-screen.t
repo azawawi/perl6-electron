@@ -2,7 +2,7 @@ use v6;
 
 use Test;
 
-use lib 'lib';
+
 
 # Methods to test
 my @methods = 'on', 'on-display-added', 'on-display-removed',
