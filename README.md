@@ -33,7 +33,7 @@ can be called from the command line.
 - Install pre-built electron for your platform using the following command
   line:
 ```
-$ npm install electron-prebuilt -g
+$ sudo npm install electron-prebuilt -g
 ```
 
 
@@ -54,7 +54,7 @@ $ panda install Electron
 To run tests:
 
 ```
-$ prove -e "perl6 -Ilib"
+$ prove -v -e "perl6 -Ilib"
 ```
 
 ## Author
