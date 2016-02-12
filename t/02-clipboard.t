@@ -1,6 +1,7 @@
 use v6;
 
 use Test;
+use lib 'lib';
 
 # Methods to test
 my @methods = 'write-text', 'read-text', 'clear';

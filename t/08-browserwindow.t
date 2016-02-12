@@ -1,8 +1,7 @@
 use v6;
 
 use Test;
-
-
+use lib 'lib';
 
 # Methods to test
 my @methods = 'load-url', 'show', 'on', 'on-page-title-updated',

@@ -1,8 +1,7 @@
 use v6;
 
 use Test;
-
-
+use lib 'lib';
 
 # Methods to test
 my @methods = 'show-open-dialog', 'show-save-dialog', 'show-message-box', 'show-error-box';
