@@ -34,7 +34,7 @@ can be called from the command line.
 - Install pre-built electron for your platform using the following command
   line:
 ```
-$ sudo npm install electron-prebuilt -g
+$ npm install electron-prebuilt -g
 ```
 
 
