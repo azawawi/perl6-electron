@@ -1,7 +1,18 @@
+sudo: required
+
 language: perl6
+
+os:
+  - linux
+  - osx
+
 perl6:
-    - latest
+  - 2016.01
+  - latest
 
 install:
-    - rakudobrew build-panda
-    - panda update && panda install File::Which JSON::RPC
+  - echo $TRAVIS_OS_NAME
+  - rakudobrew build panda
+  - panda installdeps .
+
+script: prove -v -e perl6 t/
