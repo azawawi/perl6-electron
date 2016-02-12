@@ -2,7 +2,7 @@
 
 use v6;
 
-
+use lib 'lib';
 
 # Hello world from Bailador as a separate async process
 my $code = q!use Bailador; get '/' => sub { "Hello world from Bailador inside an Electron app" }; baile;!;
