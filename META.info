@@ -23,7 +23,6 @@
 		"resources/main_app/main.js",
 		"resources/main_app/node_modules/node-json-rpc/LICENSE",
 		"resources/main_app/node_modules/node-json-rpc/README.md",
-		"resources/main_app/node_modules/node-json-rpc/.npmignore",
 		"resources/main_app/node_modules/node-json-rpc/package.json",
 		"resources/main_app/node_modules/node-json-rpc/test/rpc.js",
 		"resources/main_app/node_modules/node-json-rpc/test/etc/optsserver.js",
