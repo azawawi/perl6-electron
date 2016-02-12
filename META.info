@@ -1,6 +1,7 @@
 {
 	"name"        : "Electron",
 	"version"     : "*",
+	"perl"        : "6.c",
 	"description" : "Cross-platform Perl 6 desktop web-based applications using the Electron platform",
 	"depends"     : [ "File::Which", "JSON::RPC" ],
 	"provides"    : {
@@ -17,5 +18,8 @@
 		"Electron::Shell"          : "lib/Electron/Shell.pm6",
 		"Electron::Tray"           : "lib/Electron/Tray.pm6"
 	},
+	"resources"   : [
+		"main_app"
+	],
 	"source-url"  : "git://github.com/azawawi/perl6-electron.git"
 }

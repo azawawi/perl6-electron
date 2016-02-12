@@ -49,17 +49,9 @@ submethod initialize {
   unless $!electron_process {
     fail("Cannot find electron in PATH") unless which('electron');
 
-    # Find Electron/main_app folder in @*INC
-    my $app_path;
-    for @*INC -> $lib is copy {
-      $lib = $lib.subst(/^ \w+ '#'/,"");
-      my $f = $*SPEC.catfile($lib, "Electron/main_app");
-      if $f.IO ~~ :e {
-          $app_path = $f;
-          last;
-      }
-    }
-    fail("Cannot find electron main app") unless $app_path.defined;
+    # Find Electron/main_app folder in resources
+    my $app_path = %?RESOURCES{"main_app"};
+    fail("Cannot find electron main app in resources") unless $app_path.defined;
 
     # Start the electron main process
     $!electron_process = Proc::Async.new( "electron", $app_path );
