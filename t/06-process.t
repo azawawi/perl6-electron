@@ -27,7 +27,7 @@ for @methods -> $method {
 my $app = Electron::App.instance;
 LEAVE {
   diag 'Destroy electron app';
-  $app.destroy;
+  $app.destroy if $app.defined;
 }
 
 my $versions = Electron::Process.versions;
