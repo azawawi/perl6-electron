@@ -7,12 +7,12 @@ os:
   - osx
 
 perl6:
-  - 2016.01
+  - 2016.03
   - latest
 
 install:
   - echo $TRAVIS_OS_NAME
   - rakudobrew build panda
-  - panda installdeps .
+  - panda --verbose installdeps .
 
 script: prove -v -e perl6 t/
