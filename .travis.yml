@@ -13,6 +13,6 @@ perl6:
 install:
   - echo $TRAVIS_OS_NAME
   - rakudobrew build panda
-  - panda --verbose installdeps .
+  - panda installdeps .
 
 script: prove -v -e perl6 t/
