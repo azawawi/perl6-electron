@@ -1,5 +1,4 @@
-# Electron [![Build Status](https://travis-ci.org/azawawi/perl6-electron.svg?branch=master)](https://travis-ci.org/azawawi/perl6-electron)
-[![Build status](https://ci.appveyor.com/api/projects/status/github/azawawi/perl6-electron?svg=true)](https://ci.appveyor.com/project/azawawi/perl6-electron/branch/master)
+# Electron [![Build Status](https://travis-ci.org/azawawi/perl6-electron.svg?branch=master)](https://travis-ci.org/azawawi/perl6-electron) [![Build status](https://ci.appveyor.com/api/projects/status/github/azawawi/perl6-electron?svg=true)](https://ci.appveyor.com/project/azawawi/perl6-electron/branch/master)
 
 The goal is to write cross-platform Perl 6 desktop applications using
 JavaScript, HTML and CSS on top of the [Electron](https://github.com/atom/electron) platform. It is based on [io.js](http://iojs.org) and [Chromium](http://www.chromium.org) and is used in
