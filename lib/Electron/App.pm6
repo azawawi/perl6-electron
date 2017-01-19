@@ -8,6 +8,7 @@ unit class Electron::App;
 
 use File::Which;
 use JSON::RPC::Client;
+use LWP::Simple;
 
 has $!electron_process;
 has @!listeners;
@@ -27,7 +28,7 @@ method new {
 The singleton instance of the Electron App.
 Please note that App.new will die by design
 =end pod
-method instance { 
+method instance {
   if ! $instance.defined {
     $instance = Electron::App.bless;
     $instance.initialize;
