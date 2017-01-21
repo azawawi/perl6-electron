@@ -13,16 +13,16 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
 
   // Module for desktop integration
-  var Shell         = require('shell');
+  var Shell         = require('electron').shell;
 
   // Module for clipboard copy/paste integration
-  var Clipboard     = require('clipboard');
+  var Clipboard     = require('electron').clipboard;
 
   // Module for native system dialogs
-  var Dialog = require('dialog');
+  var Dialog = require('electron').dialog;
 
   // Module for screens
-  var Screen = require('screen');
+  var Screen = require('electron').screen;
 
   // Create a JSON::RPC server object
   var rpc = require('./node_modules/node-json-rpc');
