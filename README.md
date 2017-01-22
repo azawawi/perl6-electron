@@ -6,11 +6,10 @@ JavaScript, HTML and CSS on top of the [Electron](https://github.com/atom/electr
 
 ## Installation
 
-To install it using Panda (a module management tool bundled with Rakudo Star):
+To install it using zef (a module management tool bundled with Rakudo Star):
 
 ```
-$ panda update
-$ panda install Electron
+$ zef install Electron
 ```
 
 ### Dependencies

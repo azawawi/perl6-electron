@@ -1,5 +1,3 @@
-sudo: required
-
 language: perl6
 
 os:
@@ -7,12 +5,15 @@ os:
   - osx
 
 perl6:
-  - 2016.03
+  - 2016.11
   - latest
 
 install:
-  - echo $TRAVIS_OS_NAME
-  - rakudobrew build panda
-  - panda installdeps .
+  - rakudobrew build zef
+  - zef --depsonly install .
+  - zef install Test::META
+  - zef build .
 
-script: prove -v -e perl6 t/
+script:
+    - AUTHOR_TESTING=1 prove -ve "perl6 -Ilib"
+    - zef install .
