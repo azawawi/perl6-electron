@@ -187,29 +187,38 @@ app.on('ready', function() {
   });
 
   server.addMethod("Dialog-show-open-dialog", function(param, callback) {
-    param = param || {};
-    var handle  = param.handle   || -1;
-    var win     = handleStore[handle];
-    var options = param.options || {};
-    var result = { "selected": Dialog.showOpenDialog(win, options) };
+    param        = param || {};
+    var handle   = param.handle   || -1;
+    var win      = handleStore[handle];
+    var options  = param.options || {};
+    var selected =  win
+        ? Dialog.showOpenDialog(win, options)
+        : Dialog.showOpenDialog(options)
+    var result   = { "selected": selected };
     callback(0, result);
   });
 
   server.addMethod("Dialog-show-save-dialog", function(param, callback) {
-    param = param || {};
-    var handle  = param.handle   || -1;
-    var win     = handleStore[handle];
-    var options = param.options || {};
-    var result = { "selected": Dialog.showSaveDialog(win, options) };
+    param        = param || {};
+    var handle   = param.handle   || -1;
+    var win      = handleStore[handle];
+    var options  = param.options || {};
+    var selected =  win
+        ? Dialog.showSaveDialog(win, options)
+        : Dialog.showSaveDialog(options)
+    var result   = { "selected": selected };
     callback(0, result);
   });
 
   server.addMethod("Dialog-show-message-box", function(param, callback) {
-    param = param || {};
-    var handle  = param.handle   || -1;
-    var win     = handleStore[handle];
-    var options = param.options || {};
-    var result = { "selected": Dialog.showMessageBox(win, options) };
+    param        = param || {};
+    var handle   = param.handle   || -1;
+    var win      = handleStore[handle];
+    var options  = param.options || {};
+    var selected =  win
+        ? Dialog.showMessageBox(win, options)
+        : Dialog.showMessageBox(options)
+    var result = { "selected": selected };
     callback(0, result);
   });
 
