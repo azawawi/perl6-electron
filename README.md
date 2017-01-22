@@ -26,7 +26,7 @@ $ sudo apt-get install nodejs
 - Install pre-built electron for your platform using the following command
   line:
 ```
-$ sudo npm install electron-prebuilt -g
+$ sudo npm install electron -g
 ```
 
 After a successful installation, electron should be installed in
@@ -42,7 +42,7 @@ can be called from the command line.
 - Install pre-built electron for your platform using the following command
   line:
 ```
-$ npm install electron-prebuilt -g
+$ npm install electron -g
 ```
 
 After a success installation, electron should be installed in
