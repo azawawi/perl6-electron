@@ -1,8 +1,5 @@
 // Module to control application life.
-var app           = require('app');
-
-// Module to create native browser window.
-var BrowserWindow = require('browser-window');
+const {app}           = require('electron');
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
@@ -16,16 +13,16 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
 
   // Module for desktop integration
-  var Shell         = require('shell');
+  var Shell         = require('electron').shell;
 
   // Module for clipboard copy/paste integration
-  var Clipboard     = require('clipboard');
+  var Clipboard     = require('electron').clipboard;
 
   // Module for native system dialogs
-  var Dialog = require('dialog');
+  var Dialog = require('electron').dialog;
 
   // Module for screens
-  var Screen = require('screen');
+  var Screen = require('electron').screen;
 
   // Create a JSON::RPC server object
   var rpc = require('./node_modules/node-json-rpc');
@@ -52,7 +49,7 @@ app.on('ready', function() {
     var kiosk = param.kiosk || false;
 
     // Create the browser window.
-    var win = new BrowserWindow({
+    var win = new app({
       "x"       : x,
       "y"       : y,
       "width"   : width,
