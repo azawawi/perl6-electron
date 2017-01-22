@@ -7,7 +7,7 @@ use lib 'lib';
 # Hello world from HTTP::Server::Async
 use HTTP::Server::Async;
 my $server = HTTP::Server::Async.new(:port(3000));
-$server.register(sub ($request, $response, $next) {
+$server.handler(sub ($request, $response) {
   $response.headers<Content-Type> = 'text/plain';
   $response.status = 200;
   $response.write("Hello ");

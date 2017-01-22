@@ -12,6 +12,9 @@ app.on('window-all-closed', function() {
 // initialization and ready for creating browser windows.
 app.on('ready', function() {
 
+  // Module to create and control browser windows
+  var BrowserWindow = require('electron').BrowserWindow;
+
   // Module for desktop integration
   var Shell         = require('electron').shell;
 
@@ -49,7 +52,7 @@ app.on('ready', function() {
     var kiosk = param.kiosk || false;
 
     // Create the browser window.
-    var win = new app({
+    var win = new BrowserWindow({
       "x"       : x,
       "y"       : y,
       "width"   : width,
@@ -93,7 +96,7 @@ app.on('ready', function() {
     if(handle) {
       var win = handleStore[handle];
       if(win) {
-        win.loadUrl(url);
+        win.loadURL(url);
       } else {
         // Invalid handle id
       }
