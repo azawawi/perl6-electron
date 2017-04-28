@@ -1,5 +1,6 @@
 {
 	"name"        : "Electron",
+	"license"     : "MIT",
 	"version"     : "0.0.1",
 	"perl"        : "6.c",
 	"description" : "Cross-platform Perl 6 desktop web-based applications using the Electron platform",
